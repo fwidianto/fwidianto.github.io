@@ -1,0 +1,43 @@
+body {
+  background-color: #111;
+  color: white;
+  font-family: Arial;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px;
+}
+
+nav {
+  background: #1b1b1b;
+  padding: 20px;
+}
+
+nav a {
+  color: white;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #999;
+}
+
+.card {
+  background: #1b1b1b;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.skill {
+  display: inline-block;
+  background: #222;
+  padding: 8px 14px;
+  border-radius: 999px;
+  margin: 5px;
+}
