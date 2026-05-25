@@ -183,3 +183,105 @@ nav a:hover {
   }
 
 }
+
+/* ROADMAP SECTION */
+
+.roadmap-section {
+  margin-top: 120px;
+}
+
+/* ROADMAP */
+
+.roadmap {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+/* ROADMAP ITEM */
+
+.roadmap-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 220px;
+}
+
+/* CONNECTING LINE */
+
+.roadmap-line {
+  height: 2px;
+  width: 80px;
+  background: linear-gradient(to right, #333, #666);
+  margin-bottom: 120px;
+}
+
+/* DOT */
+
+.roadmap-dot {
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 12px rgba(255,255,255,0.8),
+    0 0 24px rgba(255,255,255,0.4);
+
+  margin-bottom: 24px;
+}
+
+/* CARD */
+
+.roadmap-card {
+  background: #121212;
+  border: 1px solid #1f1f1f;
+  border-radius: 18px;
+  padding: 24px;
+  width: 220px;
+  transition: 0.3s;
+}
+
+.roadmap-card:hover {
+  transform: translateY(-6px);
+  border-color: #333;
+}
+
+/* YEAR */
+
+.roadmap-year {
+  color: #888;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+/* TITLE */
+
+.roadmap-card h3 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-size: 24px;
+}
+
+/* TEXT */
+
+.roadmap-card p {
+  color: #bbb;
+  font-size: 15px;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .roadmap {
+    align-items: flex-start;
+  }
+
+  .roadmap-line {
+    width: 40px;
+    margin-bottom: 140px;
+  }
+
+}
