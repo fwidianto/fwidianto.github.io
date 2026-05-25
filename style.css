@@ -33,7 +33,7 @@ nav a:hover {
 /* CONTAINER */
 
 .container {
-  max-width: 1100px;
+  max-width: 1300px;
   margin: auto;
   padding: 60px 24px;
 }
@@ -88,101 +88,6 @@ nav a:hover {
   margin-bottom: 60px;
 }
 
-/* TIMELINE */
-
-.timeline {
-  position: relative;
-  margin-left: 20px;
-  border-left: 2px solid #222;
-  padding-left: 40px;
-}
-
-/* TIMELINE ITEM */
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 70px;
-}
-
-/* DOT */
-
-.timeline-dot {
-  position: absolute;
-  left: -51px;
-  top: 8px;
-
-  width: 18px;
-  height: 18px;
-
-  background: white;
-  border-radius: 50%;
-
-  box-shadow:
-    0 0 10px rgba(255,255,255,0.7),
-    0 0 20px rgba(255,255,255,0.4);
-}
-
-/* CONTENT */
-
-.timeline-content {
-  background: #121212;
-  padding: 28px;
-  border-radius: 18px;
-  border: 1px solid #1f1f1f;
-  transition: 0.3s;
-}
-
-.timeline-content:hover {
-  transform: translateY(-4px);
-  border-color: #333;
-}
-
-/* YEAR */
-
-.timeline-year {
-  color: #888;
-  font-size: 14px;
-  letter-spacing: 2px;
-}
-
-/* TEXT */
-
-.timeline-content h3 {
-  margin-top: 10px;
-  margin-bottom: 12px;
-  font-size: 26px;
-}
-
-.timeline-content p {
-  color: #bbb;
-}
-
-/* MOBILE */
-
-@media (max-width: 768px) {
-
-  .hero h1 {
-    font-size: 46px;
-  }
-
-  .hero h2 {
-    font-size: 20px;
-  }
-
-  .section-title {
-    font-size: 30px;
-  }
-
-  nav {
-    padding: 18px;
-  }
-
-  nav a {
-    display: inline-block;
-    margin-bottom: 10px;
-  }
-
-}
 
 /* =========================
    ROADMAP SECTION
@@ -200,14 +105,16 @@ nav a:hover {
 
   position: relative;
 
-  max-width: 1200px;
+  max-width: 1400px;
 
   margin: auto;
 
-  padding: 60px 0;
+  padding: 80px 0;
 }
 
-/* CENTER LINE */
+/* =========================
+   CENTER LINE
+========================= */
 
 .roadmap::before {
 
@@ -220,11 +127,18 @@ nav a:hover {
 
   left: 50%;
 
-  width: 2px;
+  width: 4px;
 
-  background: #222;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.4),
+    rgba(255,255,255,0.05)
+  );
 
   transform: translateX(-50%);
+
+  border-radius: 999px;
 }
 
 /* =========================
@@ -237,33 +151,75 @@ nav a:hover {
 
   width: 50%;
 
-  padding: 20px 40px;
+  padding: 20px 80px;
 
   box-sizing: border-box;
 
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
-/* LEFT */
+/* =========================
+   LEFT SIDE
+========================= */
 
 .roadmap-item.left {
 
   left: 0;
 
+  display: flex;
+
+  justify-content: flex-end;
+
   text-align: right;
 }
 
-/* RIGHT */
+/* =========================
+   RIGHT SIDE
+========================= */
 
 .roadmap-item.right {
 
   left: 50%;
 
+  display: flex;
+
+  justify-content: flex-start;
+
   text-align: left;
 }
 
 /* =========================
-   DOT
+   CONNECTOR LINE
+========================= */
+
+.roadmap-item::before {
+
+  content: '';
+
+  position: absolute;
+
+  top: 55px;
+
+  width: 60px;
+  height: 2px;
+
+  background: rgba(255,255,255,0.15);
+}
+
+/* LEFT CONNECTOR */
+
+.roadmap-item.left::before {
+  right: 0;
+}
+
+/* RIGHT CONNECTOR */
+
+.roadmap-item.right::before {
+  left: 0;
+}
+
+/* =========================
+   TIMELINE DOT
 ========================= */
 
 .roadmap-dot {
@@ -272,8 +228,8 @@ nav a:hover {
 
   top: 40px;
 
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
 
   background: white;
 
@@ -284,8 +240,8 @@ nav a:hover {
   border: 4px solid #0b0b0b;
 
   box-shadow:
-    0 0 12px rgba(255,255,255,0.8),
-    0 0 28px rgba(255,255,255,0.4);
+    0 0 12px rgba(255,255,255,0.9),
+    0 0 30px rgba(255,255,255,0.5);
 
   overflow: hidden;
 }
@@ -293,16 +249,18 @@ nav a:hover {
 /* LEFT DOT */
 
 .roadmap-item.left .roadmap-dot {
-  right: -15px;
+  right: -17px;
 }
 
 /* RIGHT DOT */
 
 .roadmap-item.right .roadmap-dot {
-  left: -15px;
+  left: -17px;
 }
 
-/* OPTIONAL IMAGE */
+/* =========================
+   OPTIONAL IMAGE
+========================= */
 
 .roadmap-dot img {
 
@@ -318,26 +276,36 @@ nav a:hover {
 
 .roadmap-card {
 
-  background: #121212;
+  width: 100%;
+  max-width: 560px;
+
+  background: rgba(18,18,18,0.95);
 
   border: 1px solid #1f1f1f;
 
-  border-radius: 20px;
+  border-radius: 24px;
 
-  padding: 30px;
+  padding: 40px;
 
-  transition: 0.3s;
+  transition: 0.35s ease;
+
+  backdrop-filter: blur(12px);
 }
+
+/* HOVER EFFECT */
 
 .roadmap-card:hover {
 
   transform: translateY(-6px);
 
-  border-color: #333;
+  border-color: #444;
+
+  box-shadow:
+    0 10px 40px rgba(255,255,255,0.06);
 }
 
 /* =========================
-   TEXT
+   YEAR
 ========================= */
 
 .roadmap-year {
@@ -346,51 +314,84 @@ nav a:hover {
 
   font-size: 13px;
 
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
 }
+
+/* =========================
+   TITLE
+========================= */
 
 .roadmap-card h3 {
 
-  margin-top: 12px;
-  margin-bottom: 16px;
+  margin-top: 16px;
+  margin-bottom: 20px;
 
-  font-size: 30px;
+  font-size: 42px;
+
+  line-height: 1.1;
 }
+
+/* =========================
+   DESCRIPTION
+========================= */
 
 .roadmap-card p {
 
   color: #bdbdbd;
 
-  line-height: 1.8;
+  line-height: 1.9;
+
+  font-size: 17px;
 }
 
 /* =========================
    MOBILE
 ========================= */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
   .roadmap::before {
 
-    left: 20px;
+    left: 24px;
   }
 
   .roadmap-item {
 
     width: 100%;
 
-    padding-left: 70px;
-    padding-right: 20px;
-
     left: 0 !important;
 
+    padding-left: 80px;
+    padding-right: 20px;
+
     text-align: left !important;
+
+    justify-content: flex-start !important;
+  }
+
+  .roadmap-item::before {
+
+    left: 24px !important;
+
+    width: 40px;
   }
 
   .roadmap-dot {
 
-    left: 5px !important;
-    right: auto;
+    left: 7px !important;
+    right: auto !important;
+  }
+
+  .roadmap-card {
+
+    max-width: 100%;
+  }
+
+  .roadmap-card h3 {
+
+    font-size: 30px;
   }
 
 }
