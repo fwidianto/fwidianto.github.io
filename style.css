@@ -187,61 +187,74 @@ nav a:hover {
 /* ROADMAP SECTION */
 
 .roadmap-section {
-  margin-top: 120px;
+  margin-top: 140px;
 }
 
-/* ROADMAP */
+/* ROADMAP CONTAINER */
 
 .roadmap {
-  display: flex;
-  align-items: center;
-  overflow-x: auto;
-  padding-bottom: 20px;
+  position: relative;
+  margin-left: 40px;
+  border-left: 2px solid #222;
+  padding-left: 60px;
 }
 
-/* ROADMAP ITEM */
+/* ITEM */
 
 .roadmap-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 220px;
+  position: relative;
+  margin-bottom: 80px;
 }
 
-/* CONNECTING LINE */
-
-.roadmap-line {
-  height: 2px;
-  width: 80px;
-  background: linear-gradient(to right, #333, #666);
-  margin-bottom: 120px;
-}
-
-/* DOT */
+/* IMAGE / CIRCLE */
 
 .roadmap-dot {
-  width: 20px;
-  height: 20px;
-  background: white;
+
+  position: absolute;
+
+  left: -74px;
+  top: 10px;
+
+  width: 28px;
+  height: 28px;
+
   border-radius: 50%;
+
+  background: white;
 
   box-shadow:
     0 0 12px rgba(255,255,255,0.8),
-    0 0 24px rgba(255,255,255,0.4);
+    0 0 28px rgba(255,255,255,0.4);
 
-  margin-bottom: 24px;
+  overflow: hidden;
+
+  border: 3px solid #0b0b0b;
+}
+
+/* OPTIONAL IMAGE */
+
+.roadmap-dot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* CARD */
 
 .roadmap-card {
+
   background: #121212;
+
   border: 1px solid #1f1f1f;
-  border-radius: 18px;
-  padding: 24px;
-  width: 220px;
+
+  border-radius: 20px;
+
+  padding: 30px;
+
   transition: 0.3s;
 }
+
+/* HOVER */
 
 .roadmap-card:hover {
   transform: translateY(-6px);
@@ -251,24 +264,24 @@ nav a:hover {
 /* YEAR */
 
 .roadmap-year {
-  color: #888;
-  font-size: 13px;
+  color: #777;
   letter-spacing: 2px;
+  font-size: 13px;
 }
 
 /* TITLE */
 
 .roadmap-card h3 {
   margin-top: 12px;
-  margin-bottom: 12px;
-  font-size: 24px;
+  margin-bottom: 16px;
+  font-size: 30px;
 }
 
 /* TEXT */
 
 .roadmap-card p {
-  color: #bbb;
-  font-size: 15px;
+  color: #bdbdbd;
+  line-height: 1.8;
 }
 
 /* MOBILE */
@@ -276,12 +289,16 @@ nav a:hover {
 @media (max-width: 768px) {
 
   .roadmap {
-    align-items: flex-start;
+    margin-left: 10px;
+    padding-left: 40px;
   }
 
-  .roadmap-line {
-    width: 40px;
-    margin-bottom: 140px;
+  .roadmap-dot {
+    left: -54px;
+  }
+
+  .roadmap-card h3 {
+    font-size: 24px;
   }
 
 }
