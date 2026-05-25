@@ -90,143 +90,85 @@ nav a:hover {
 
 
 /* =========================
-   ROADMAP SECTION
+   ZIGZAG ROADMAP
 ========================= */
 
-.roadmap-section {
-  margin-top: 140px;
-}
-
-/* =========================
-   ROADMAP CONTAINER
-========================= */
-
-.roadmap {
-
-  position: relative;
-
-  max-width: 1400px;
-
-  margin: auto;
-
-  padding: 80px 0;
-}
-
-/* =========================
-   CENTER LINE
-========================= */
-
-.roadmap::before {
-
-  content: '';
-
-  position: absolute;
-
-  top: 0;
-  bottom: 0;
-
-  left: 50%;
-
-  width: 4px;
-
-  background: linear-gradient(
-    to bottom,
-    rgba(255,255,255,0.05),
-    rgba(255,255,255,0.4),
-    rgba(255,255,255,0.05)
-  );
-
-  transform: translateX(-50%);
-
-  border-radius: 999px;
-}
-
-/* =========================
-   ROADMAP ITEM
-========================= */
-
-.roadmap-item {
-
-  position: relative;
-
-  width: 50%;
-
-  padding: 20px 80px;
-
-  box-sizing: border-box;
-
-  margin-bottom: 40px;
-}
-
-/* =========================
-   LEFT SIDE
-========================= */
-
-.roadmap-item.left {
-
-  left: 0;
+.zigzag-roadmap {
 
   display: flex;
 
-  justify-content: flex-end;
+  flex-direction: column;
 
-  text-align: right;
+  gap: 80px;
+
+  margin-top: 80px;
 }
 
 /* =========================
-   RIGHT SIDE
+   ITEM
 ========================= */
 
-.roadmap-item.right {
-
-  left: 50%;
+.zigzag-item {
 
   display: flex;
+
+  align-items: center;
+
+  position: relative;
+}
+
+/* LEFT */
+
+.zigzag-item.left {
 
   justify-content: flex-start;
+}
 
-  text-align: left;
+/* RIGHT */
+
+.zigzag-item.right {
+
+  justify-content: flex-end;
 }
 
 /* =========================
-   CONNECTOR LINE
+   CARD
 ========================= */
 
-.roadmap-item::before {
+.zigzag-card {
 
-  content: '';
+  width: 55%;
 
-  position: absolute;
+  background: rgba(18,18,18,0.95);
 
-  top: 55px;
+  border: 1px solid #1f1f1f;
 
-  width: 60px;
-  height: 2px;
+  border-radius: 28px;
 
-  background: rgba(255,255,255,0.15);
+  padding: 40px;
+
+  backdrop-filter: blur(12px);
+
+  transition: 0.35s ease;
+
+  position: relative;
 }
 
-/* LEFT CONNECTOR */
+.zigzag-card:hover {
 
-.roadmap-item.left::before {
-  right: 0;
-}
+  transform: translateY(-6px);
 
-/* RIGHT CONNECTOR */
+  border-color: #444;
 
-.roadmap-item.right::before {
-  left: 0;
+  box-shadow:
+    0 10px 40px rgba(255,255,255,0.05);
 }
 
 /* =========================
-   TIMELINE DOT
+   NODE
 ========================= */
 
-.roadmap-dot {
-
-  position: absolute;
-
-  top: 40px;
+.zigzag-node {
 
   width: 34px;
   height: 34px;
@@ -235,109 +177,110 @@ nav a:hover {
 
   border-radius: 50%;
 
-  z-index: 10;
-
-  border: 4px solid #0b0b0b;
+  flex-shrink: 0;
 
   box-shadow:
     0 0 12px rgba(255,255,255,0.9),
-    0 0 30px rgba(255,255,255,0.5);
+    0 0 30px rgba(255,255,255,0.4);
 
-  overflow: hidden;
-}
-
-/* LEFT DOT */
-
-.roadmap-item.left .roadmap-dot {
-  right: -17px;
-}
-
-/* RIGHT DOT */
-
-.roadmap-item.right .roadmap-dot {
-  left: -17px;
+  position: relative;
 }
 
 /* =========================
-   OPTIONAL IMAGE
+   CONNECTOR LINE
 ========================= */
 
-.roadmap-dot img {
+.zigzag-node::before {
 
-  width: 100%;
-  height: 100%;
+  content: '';
 
-  object-fit: cover;
+  position: absolute;
+
+  width: 120px;
+  height: 4px;
+
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.4)
+  );
+
+  top: 50%;
+
+  transform: translateY(-50%);
+}
+
+/* LEFT CONNECTOR */
+
+.zigzag-item.left .zigzag-node::before {
+
+  right: 34px;
+}
+
+/* RIGHT CONNECTOR */
+
+.zigzag-item.right .zigzag-node::before {
+
+  left: 34px;
 }
 
 /* =========================
-   CARD
+   VERTICAL CONNECTOR
 ========================= */
 
-.roadmap-card {
+.zigzag-item::after {
 
-  width: 100%;
-  max-width: 560px;
+  content: '';
 
-  background: rgba(18,18,18,0.95);
+  position: absolute;
 
-  border: 1px solid #1f1f1f;
+  width: 4px;
 
-  border-radius: 24px;
+  height: 80px;
 
-  padding: 40px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.3),
+    rgba(255,255,255,0.05)
+  );
 
-  transition: 0.35s ease;
+  left: 50%;
 
-  backdrop-filter: blur(12px);
+  bottom: -80px;
+
+  transform: translateX(-50%);
 }
 
-/* HOVER EFFECT */
+/* LAST ITEM */
 
-.roadmap-card:hover {
+.zigzag-item:last-child::after {
 
-  transform: translateY(-6px);
-
-  border-color: #444;
-
-  box-shadow:
-    0 10px 40px rgba(255,255,255,0.06);
+  display: none;
 }
 
 /* =========================
-   YEAR
+   TEXT
 ========================= */
 
-.roadmap-year {
+.zigzag-card span {
 
   color: #777;
 
-  font-size: 13px;
-
   letter-spacing: 3px;
 
-  text-transform: uppercase;
+  font-size: 13px;
 }
 
-/* =========================
-   TITLE
-========================= */
-
-.roadmap-card h3 {
-
-  margin-top: 16px;
-  margin-bottom: 20px;
+.zigzag-card h3 {
 
   font-size: 42px;
 
-  line-height: 1.1;
+  margin-top: 16px;
+
+  margin-bottom: 20px;
 }
 
-/* =========================
-   DESCRIPTION
-========================= */
-
-.roadmap-card p {
+.zigzag-card p {
 
   color: #bdbdbd;
 
@@ -352,46 +295,27 @@ nav a:hover {
 
 @media (max-width: 900px) {
 
-  .roadmap::before {
+  .zigzag-item,
+  .zigzag-item.left,
+  .zigzag-item.right {
 
-    left: 24px;
+    justify-content: flex-start;
   }
 
-  .roadmap-item {
+  .zigzag-card {
 
-    width: 100%;
-
-    left: 0 !important;
-
-    padding-left: 80px;
-    padding-right: 20px;
-
-    text-align: left !important;
-
-    justify-content: flex-start !important;
+    width: calc(100% - 80px);
   }
 
-  .roadmap-item::before {
+  .zigzag-node {
 
-    left: 24px !important;
-
-    width: 40px;
+    margin-right: 24px;
   }
 
-  .roadmap-dot {
+  .zigzag-node::before,
+  .zigzag-item::after {
 
-    left: 7px !important;
-    right: auto !important;
-  }
-
-  .roadmap-card {
-
-    max-width: 100%;
-  }
-
-  .roadmap-card h3 {
-
-    font-size: 30px;
+    display: none;
   }
 
 }
