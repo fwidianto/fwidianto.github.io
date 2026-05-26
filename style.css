@@ -354,9 +354,10 @@ nav a:hover {
 
 .timeline-svg path {
   fill: none;
-  stroke: rgba(255,255,255,0.12);
+  stroke: rgba(255,255,255,0.18);
   stroke-width: 4;
   stroke-linecap: round;
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.08));
 }
 
 /* TIMELINE ITEMS */
