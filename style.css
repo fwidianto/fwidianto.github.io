@@ -48,7 +48,7 @@ body {
 
 /* ITEM */
 
-.container {
+.timeline-item {
   position: relative;
   width: 50%;
   padding: 40px 60px;
@@ -68,7 +68,7 @@ body {
 
 /* DOT */
 
-.container::after {
+.timeline-item::after {
   content: '';
   position: absolute;
   width: 20px;
@@ -81,11 +81,11 @@ body {
   border: 3px solid rgba(255,255,255,0.08);
 }
 
-.left::after {
+.timeline-item.left::after {
   right: -10px;
 }
 
-.right::after {
+.timeline-item.right::after {
   left: -10px;
 }
 
@@ -143,13 +143,13 @@ body {
     left: 30px;
   }
 
-  .container {
+  .timeline-item {
     width: 100%;
     padding-left: 80px;
     padding-right: 20px;
   }
 
-  .container::after {
+  .timeline-item::after {
     left: 20px;
   }
 
