@@ -1,0 +1,354 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>
+    Fauzan Widianto | Projects
+  </title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:#0b0f19;
+      color:#f3f4f6;
+      overflow-x:hidden;
+      line-height:1.7;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:90%;
+      max-width:1300px;
+      margin:auto;
+    }
+
+    section{
+      padding:120px 0;
+    }
+
+    .section-title{
+      font-size:52px;
+      text-align:center;
+      margin-bottom:25px;
+      font-weight:700;
+    }
+
+    .section-description{
+      max-width:850px;
+      margin:0 auto 60px auto;
+      text-align:center;
+      color:#9ca3af;
+      font-size:18px;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      width:100%;
+      top:0;
+      z-index:999;
+      backdrop-filter:blur(10px);
+      background:rgba(11,15,25,0.7);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav-container{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 0;
+    }
+
+    .logo{
+      font-size:22px;
+      font-weight:700;
+      letter-spacing:1px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:32px;
+    }
+
+    .nav-links a{
+      color:#d1d5db;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#3b82f6;
+    }
+
+    /* HERO */
+
+    .hero{
+      padding-top:180px;
+      padding-bottom:80px;
+      text-align:center;
+    }
+
+    .hero-subtitle{
+      color:#3b82f6;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      margin-bottom:20px;
+      font-weight:600;
+    }
+
+    .hero h1{
+      font-size:72px;
+      line-height:1.1;
+      margin-bottom:30px;
+    }
+
+    .hero p{
+      max-width:850px;
+      margin:auto;
+      color:#9ca3af;
+      font-size:20px;
+    }
+
+    /* DASHBOARD SECTION */
+
+    .dashboard-section{
+      padding-top:40px;
+    }
+
+    .dashboard-card{
+      background:#111827;
+      border-radius:28px;
+      padding:50px;
+      border:1px solid rgba(255,255,255,0.05);
+
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.35);
+
+      transition:0.4s;
+    }
+
+    .dashboard-card:hover{
+      transform:translateY(-6px);
+
+      box-shadow:
+        0 30px 80px rgba(0,0,0,0.45);
+    }
+
+    .dashboard-card h2{
+      font-size:42px;
+      margin-bottom:20px;
+    }
+
+    .dashboard-card p{
+      color:#9ca3af;
+      margin-bottom:35px;
+      font-size:18px;
+    }
+
+    .dashboard-tags{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:40px;
+    }
+
+    .tag{
+      background:rgba(59,130,246,0.12);
+      color:#60a5fa;
+      padding:10px 16px;
+      border-radius:999px;
+      font-size:14px;
+    }
+
+    .dashboard-frame{
+      border-radius:24px;
+      overflow:hidden;
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      background:#0f172a;
+
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    iframe{
+      display:block;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:50px 0;
+      border-top:1px solid rgba(255,255,255,0.05);
+      text-align:center;
+      color:#6b7280;
+      margin-top:120px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px){
+
+      .hero h1{
+        font-size:52px;
+      }
+
+      .dashboard-card{
+        padding:35px;
+      }
+
+    }
+
+    @media(max-width:600px){
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .section-title{
+        font-size:38px;
+      }
+
+      .nav-links{
+        gap:18px;
+        font-size:14px;
+      }
+
+      .dashboard-card h2{
+        font-size:32px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="container nav-container">
+
+      <div class="logo">
+        FW.
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#">Projects</a>
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container">
+
+      <div class="hero-subtitle">
+        Featured Analytics Project
+      </div>
+
+      <h1>
+        Investment Analytics Dashboard
+      </h1>
+
+      <p>
+        A centralized analytics dashboard integrating derivatives positioning,
+        stablecoin flow, market structure, sentiment analysis,
+        and AI-assisted market commentary using Google Sheets,
+        APIs, and Looker Studio.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- DASHBOARD -->
+
+  <section class="dashboard-section">
+
+    <div class="container">
+
+      <div class="dashboard-card">
+
+        <h2>
+          Dashboard Overview
+        </h2>
+
+        <p>
+          This dashboard was designed to aggregate market intelligence
+          into a single operational view for monitoring liquidity,
+          positioning, risk sentiment, and macro market conditions.
+        </p>
+
+        <div class="dashboard-tags">
+
+          <div class="tag">Google Sheets</div>
+          <div class="tag">Looker Studio</div>
+          <div class="tag">API Integration</div>
+          <div class="tag">Analytics</div>
+          <div class="tag">Automation</div>
+
+        </div>
+
+        <div class="dashboard-frame">
+
+          <iframe
+            width="100%"
+            height="750"
+            src="https://datastudio.google.com/embed/reporting/2e5b7747-da98-4dff-9ee0-961e5620ad8c/page/Bc3yF"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container">
+      © 2026 Fauzan Widianto — Projects Portfolio
+    </div>
+
+  </footer>
+
+</body>
+
+</html>
+```
