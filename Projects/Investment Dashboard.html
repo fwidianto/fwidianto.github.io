@@ -201,6 +201,51 @@
     iframe{
       display:block;
     }
+    
+     .macro-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:24px;
+      margin-top:50px;
+    }
+
+    .macro-card{
+      background:#111827;
+      border-radius:24px;
+      padding:20px;
+      border:1px solid rgba(255,255,255,0.05);
+      box-shadow:0 20px 50px rgba(0,0,0,0.35);
+    }
+
+    .macro-card h3{
+      margin-bottom:20px;
+      font-size:20px;
+      color:#f3f4f6;
+    }
+    
+    .macro-card{
+      transition:0.3s;
+    }
+
+    .macro-card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(59,130,246,0.25);
+    }
+    
+    tv-mini-chart{
+      width:100%;
+      height:320px;
+      display:block;
+    }
+    
+    .macro-widget{
+      margin-top:50px;
+      border-radius:28px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.05);
+      background:#111827;
+      box-shadow:0 20px 60px rgba(0,0,0,0.35);
+    }
 
     /* FOOTER */
 
@@ -341,6 +386,120 @@
     </div>
 
   </section>
+  
+  <section id="macro">
+
+  <div class="dashboard-container">
+
+    <h2 class="section-title">
+      Market Environment
+    </h2>
+    
+    <p class="section-description">
+  Monitoring macroeconomic indicators and liquidity-sensitive assets
+  to better understand broader market conditions.
+</p>
+
+   <div class="macro-widget">
+
+  <div class="tradingview-widget-container__widget"></div>
+
+  <script
+    type="text/javascript"
+    src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js"
+    async>
+{
+  "colorTheme": "dark",
+  "locale": "en",
+  "isTransparent": true,
+  "showSymbolLogo": true,
+  "backgroundColor": "#0b0f19",
+  "width": "100%",
+  "height": 600,
+
+  "symbolsGroups": [
+
+    {
+      "name": "Macro Environment",
+      "symbols": [
+
+        {
+          "name": "TVC:USOIL",
+          "displayName": "Oil"
+        },
+
+        {
+          "name": "TVC:DXY",
+          "displayName": "US Dollar Index"
+        },
+        {
+          "name": "TVC:US10Y",
+          "displayName": "US 10Y Yield"
+        },
+
+        {
+          "name": "OANDA:XAUUSD",
+          "displayName": "Gold"
+        },
+
+        {
+          "name": "FOREXCOM:SPXUSD",
+          "displayName": "S&P 500"
+        }
+
+
+
+      ]
+    },
+
+    {
+      "name": "Risk Assets",
+      "symbols": [
+
+        {
+          "name": "BINANCE:BTCUSDT",
+          "displayName": "Bitcoin"
+        },
+
+        {
+          "name": "BINANCE:ETHUSDT",
+          "displayName": "Ethereum"
+        },
+
+        {
+          "name": "IDX:BBCA",
+          "displayName": "BBCA"
+        }
+
+      ]
+    },
+
+    {
+      "name": "FX Market",
+      "symbols": [
+
+        {
+          "name": "FX:USDJPY",
+          "displayName": "USDJPY"
+        },
+
+        {
+          "name": "FX_IDC:USDIDR",
+          "displayName": "USDIDR"
+        }
+
+      ]
+    }
+
+  ]
+}
+  </script>
+
+</div>
+
+  </div>
+
+</section>
 
   <!-- FOOTER -->
 
@@ -352,6 +511,7 @@
 
   </footer>
 
+<script type="module" src="https://widgets.tradingview-widget.com/w/en/tv-mini-chart.js"></script>
 </body>
 
 </html>
