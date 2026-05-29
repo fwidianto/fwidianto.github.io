@@ -1,20 +1,21 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>
-    Fauzan Widianto | Projects
-  </title>
+  <title>Fauzan Widianto | Investment Analytics Dashboard</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
 
@@ -22,6 +23,10 @@
       margin:0;
       padding:0;
       box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
     }
 
     body{
@@ -43,6 +48,12 @@
       margin:auto;
     }
 
+    .wide-container{
+      width:96%;
+      max-width:1800px;
+      margin:auto;
+    }
+
     section{
       padding:120px 0;
     }
@@ -50,7 +61,7 @@
     .section-title{
       font-size:52px;
       text-align:center;
-      margin-bottom:25px;
+      margin-bottom:20px;
       font-weight:700;
     }
 
@@ -66,11 +77,11 @@
 
     nav{
       position:fixed;
-      width:100%;
       top:0;
+      width:100%;
       z-index:999;
-      backdrop-filter:blur(10px);
-      background:rgba(11,15,25,0.7);
+      backdrop-filter:blur(12px);
+      background:rgba(11,15,25,0.75);
       border-bottom:1px solid rgba(255,255,255,0.05);
     }
 
@@ -89,7 +100,7 @@
 
     .nav-links{
       display:flex;
-      gap:32px;
+      gap:30px;
     }
 
     .nav-links a{
@@ -98,19 +109,19 @@
     }
 
     .nav-links a:hover{
-      color:#3b82f6;
+      color:#60a5fa;
     }
 
     /* HERO */
 
     .hero{
-      padding-top:180px;
-      padding-bottom:80px;
+      padding-top:190px;
+      padding-bottom:100px;
       text-align:center;
     }
 
     .hero-subtitle{
-      color:#3b82f6;
+      color:#60a5fa;
       text-transform:uppercase;
       letter-spacing:1px;
       margin-bottom:20px;
@@ -130,29 +141,25 @@
       font-size:20px;
     }
 
-    /* DASHBOARD SECTION */
+    /* CARD */
 
-    .dashboard-section{
-      padding-top:40px;
+    .card{
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.05);
+      border-radius:28px;
+      padding:40px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.35);
     }
 
+    /* DASHBOARD */
+
     .dashboard-card{
-      background:#111827;
-      border-radius:28px;
-      padding:50px;
-      border:1px solid rgba(255,255,255,0.05);
-
-      box-shadow:
-        0 20px 60px rgba(0,0,0,0.35);
-
-      transition:0.4s;
+      transition:0.3s;
     }
 
     .dashboard-card:hover{
-      transform:translateY(-6px);
-
-      box-shadow:
-        0 30px 80px rgba(0,0,0,0.45);
+      transform:translateY(-5px);
+      box-shadow:0 30px 80px rgba(0,0,0,0.45);
     }
 
     .dashboard-card h2{
@@ -162,14 +169,14 @@
 
     .dashboard-card p{
       color:#9ca3af;
-      margin-bottom:35px;
+      margin-bottom:30px;
       font-size:18px;
     }
 
     .dashboard-tags{
       display:flex;
-      gap:12px;
       flex-wrap:wrap;
+      gap:12px;
       margin-bottom:40px;
     }
 
@@ -182,84 +189,32 @@
     }
 
     .dashboard-frame{
-      border-radius:24px;
       overflow:hidden;
-
-      border:1px solid rgba(255,255,255,0.08);
-
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,0.05);
       background:#0f172a;
-
-      box-shadow:
-        0 20px 60px rgba(0,0,0,0.35);
-    }
-    .dashboard-container{
-      width:96%;
-      max-width:1800px;
-      margin:auto;
     }
 
     iframe{
       display:block;
-    }
-    
-     .macro-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:24px;
-      margin-top:50px;
-    }
-
-    .macro-card{
-      background:#111827;
-      border-radius:24px;
-      padding:20px;
-      border:1px solid rgba(255,255,255,0.05);
-      box-shadow:0 20px 50px rgba(0,0,0,0.35);
-    }
-
-    .macro-card h3{
-      margin-bottom:20px;
-      font-size:20px;
-      color:#f3f4f6;
-    }
-    
-    .macro-card{
-      transition:0.3s;
-    }
-
-    .macro-card:hover{
-      transform:translateY(-6px);
-      border-color:rgba(59,130,246,0.25);
-    }
-    
-    tv-mini-chart{
       width:100%;
-      height:320px;
-      display:block;
+      border:none;
     }
-    
+
+    /* MARKET WIDGET */
+
     .macro-widget{
-      margin-top:50px;
-      border-radius:28px;
       overflow:hidden;
+      border-radius:28px;
       border:1px solid rgba(255,255,255,0.05);
       background:#111827;
       box-shadow:0 20px 60px rgba(0,0,0,0.35);
     }
 
-    .macro-container{
-      width:85%;
-      max-width:1100px;
-      margin:auto;
-    }
-    
-    .ai-table-card{
-      background:#111827;
-      border-radius:24px;
-      padding:30px;
-      border:1px solid rgba(255,255,255,0.05);
+    /* TABLE */
+
+    .table-card{
       overflow-x:auto;
-      margin-top:40px;
     }
 
     table{
@@ -281,17 +236,15 @@
       vertical-align:top;
     }
 
+    /* SUMMARY */
+
     .summary-card{
       margin-top:40px;
-      background:#111827;
-      border-radius:24px;
-      padding:35px;
-      border:1px solid rgba(255,255,255,0.05);
     }
 
     .summary-card h3{
-      margin-bottom:20px;
       font-size:28px;
+      margin-bottom:20px;
     }
 
     .summary-card p{
@@ -299,14 +252,69 @@
       line-height:1.8;
     }
 
+    /* ALLOCATION */
+
+    #allocationContainer{
+      display:flex;
+      flex-direction:column;
+      gap:40px;
+      margin-top:50px;
+    }
+
+    .allocation-card{
+      background:#111827;
+      border-radius:24px;
+      padding:35px;
+      border:1px solid rgba(255,255,255,0.05);
+      box-shadow:0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    .allocation-grid{
+      display:grid;
+      grid-template-columns:350px 1fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .strategy-title{
+      font-size:32px;
+      margin-bottom:25px;
+    }
+
+    .chart-wrapper{
+      width:320px;
+      margin:auto;
+    }
+
+    .allocation-table{
+      width:100%;
+    }
+
+    .allocation-table td{
+      padding:12px 0;
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    .strategy-commentary{
+      margin-top:25px;
+      color:#9ca3af;
+      line-height:1.8;
+    }
+    
+    .chart-wrapper{
+      width:320px;
+      height:320px;
+      margin:auto;
+    }
+
     /* FOOTER */
 
     footer{
+      margin-top:120px;
       padding:50px 0;
-      border-top:1px solid rgba(255,255,255,0.05);
       text-align:center;
       color:#6b7280;
-      margin-top:120px;
+      border-top:1px solid rgba(255,255,255,0.05);
     }
 
     /* RESPONSIVE */
@@ -317,8 +325,17 @@
         font-size:52px;
       }
 
-      .dashboard-card{
-        padding:35px;
+      .allocation-grid{
+        grid-template-columns:1fr;
+      }
+
+      .chart-wrapper{
+        width:100%;
+        max-width:320px;
+      }
+
+      .card{
+        padding:30px;
       }
 
     }
@@ -384,9 +401,9 @@
       </h1>
 
       <p>
-          A personal analytics side project focused on monitoring markets in real time,
-          understanding macroeconomic conditions,
-          and exploring data-driven approaches to gain an analytical edge in the market.
+        A personal analytics side project focused on monitoring markets in real time,
+        understanding macroeconomic conditions, and exploring data-driven approaches
+        to gain an analytical edge in the market.
       </p>
 
     </div>
@@ -395,20 +412,19 @@
 
   <!-- DASHBOARD -->
 
-  <section class="dashboard-section">
+  <section>
 
-    <div class="dashboard-container">
+    <div class="wide-container">
 
-      <div class="dashboard-card">
+      <div class="card dashboard-card">
 
         <h2>
           Dashboard Overview
         </h2>
 
         <p>
-          This dashboard was designed to aggregate market intelligence
-          into a single operational view for monitoring liquidity,
-          positioning, risk sentiment, and macro market conditions.
+          This dashboard aggregates market intelligence into a single operational view
+          for monitoring liquidity, positioning, macro conditions, and overall risk sentiment.
         </p>
 
         <div class="dashboard-tags">
@@ -424,10 +440,8 @@
         <div class="dashboard-frame">
 
           <iframe
-            width="100%"
             height="1100"
             src="https://datastudio.google.com/embed/reporting/2e5b7747-da98-4dff-9ee0-961e5620ad8c/page/Bc3yF"
-            frameborder="0"
             allowfullscreen>
           </iframe>
 
@@ -438,157 +452,132 @@
     </div>
 
   </section>
-  
+
+  <!-- MARKET ENVIRONMENT -->
+
   <section id="macro">
 
-  <div class="macro-container">
+    <div class="container">
 
-    <h2 class="section-title">
-      Market Environment
-    </h2>
-    
-    <p class="section-description">
-  Monitoring macroeconomic indicators and liquidity-sensitive assets
-  to better understand broader market conditions.
-</p>
+      <h2 class="section-title">
+        Market Environment
+      </h2>
 
-   <div class="macro-widget">
-
-  <div class="tradingview-widget-container__widget"></div>
-
-  <script
-    type="text/javascript"
-    src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js"
-    async>
-{
-  "colorTheme": "dark",
-  "locale": "en",
-  "isTransparent": true,
-  "showSymbolLogo": true,
-  "backgroundColor": "#0b0f19",
-  "width": "100%",
-  "height": 500,
-
-  "symbolsGroups": [
-
-    {
-      "name": "Macro Environment",
-      "symbols": [
-
-        {
-          "name": "TVC:USOIL",
-          "displayName": "Oil"
-        },
-
-        {
-          "name": "TVC:DXY",
-          "displayName": "US Dollar Index"
-        },
-        {
-          "name": "TVC:US10Y",
-          "displayName": "US 10Y Yield"
-        },
-
-        {
-          "name": "OANDA:XAUUSD",
-          "displayName": "Gold"
-        },
-
-        {
-          "name": "FOREXCOM:SPXUSD",
-          "displayName": "S&P 500"
-        }
-
-
-
-      ]
-    },
-
-    {
-      "name": "Risk Assets",
-      "symbols": [
-
-        {
-          "name": "BINANCE:BTCUSDT",
-          "displayName": "Bitcoin"
-        },
-
-        {
-          "name": "BINANCE:ETHUSDT",
-          "displayName": "Ethereum"
-        },
-
-        {
-          "name": "IDX:BBCA",
-          "displayName": "BBCA"
-        }
-
-      ]
-    },
-
-    {
-      "name": "FX Market",
-      "symbols": [
-
-        {
-          "name": "FX:USDJPY",
-          "displayName": "USDJPY"
-        },
-
-        {
-          "name": "FX_IDC:USDIDR",
-          "displayName": "USDIDR"
-        }
-
-      ]
-    }
-
-  ]
-}
-  </script>
-
-</div>
-
-  </div>
-
-</section>
-
-<section id="ai-commentary">
-
-  <div class="macro-container">
-
-    <h2 class="section-title">
-      AI Market Commentary
-    </h2>
-
-    <p class="section-description">
-      AI-assisted interpretation of macroeconomic conditions,
-      liquidity environment, and market positioning.
-    </p>
-
-    <div class="ai-table-card">
-
-      <table id="marketTable">
-
-      </table>
-
-    </div>
-
-    <div class="summary-card">
-
-      <h3>
-        AI Summary
-      </h3>
-
-      <p id="aiSummary">
-        Loading summary...
+      <p class="section-description">
+        Monitoring macroeconomic indicators and liquidity-sensitive assets
+        to better understand broader market conditions.
       </p>
 
+      <div class="macro-widget">
+
+        <div class="tradingview-widget-container__widget"></div>
+
+        <script
+          type="text/javascript"
+          src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js"
+          async>
+        {
+          "colorTheme": "dark",
+          "locale": "en",
+          "isTransparent": true,
+          "showSymbolLogo": true,
+          "backgroundColor": "#0b0f19",
+          "width": "100%",
+          "height": 500,
+          "symbolsGroups": [
+            {
+              "name": "Macro Environment",
+              "symbols": [
+                {"name":"TVC:USOIL","displayName":"Oil"},
+                {"name":"TVC:DXY","displayName":"US Dollar Index"},
+                {"name":"TVC:US10Y","displayName":"US 10Y Yield"},
+                {"name":"OANDA:XAUUSD","displayName":"Gold"},
+                {"name":"FOREXCOM:SPXUSD","displayName":"S&P 500"}
+              ]
+            },
+            {
+              "name": "Risk Assets",
+              "symbols": [
+                {"name":"BINANCE:BTCUSDT","displayName":"Bitcoin"},
+                {"name":"BINANCE:ETHUSDT","displayName":"Ethereum"},
+                {"name":"IDX:BBCA","displayName":"BBCA"}
+              ]
+            },
+            {
+              "name": "FX Market",
+              "symbols": [
+                {"name":"FX:USDJPY","displayName":"USDJPY"},
+                {"name":"FX_IDC:USDIDR","displayName":"USDIDR"}
+              ]
+            }
+          ]
+        }
+        </script>
+
+      </div>
+
     </div>
 
-  </div>
+  </section>
 
-</section>
+  <!-- AI COMMENTARY -->
+
+  <section id="ai-commentary">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        AI Market Commentary
+      </h2>
+
+      <p class="section-description">
+        AI-assisted interpretation of macroeconomic conditions,
+        liquidity environment, and market positioning.
+      </p>
+
+      <div class="card table-card">
+
+        <table id="marketTable"></table>
+
+      </div>
+
+      <div class="card summary-card">
+
+        <h3>
+          AI Summary
+        </h3>
+
+        <p id="aiSummary">
+          Loading summary...
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ALLOCATION -->
+
+  <section id="portfolio-allocation">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        AI Portfolio Allocation
+      </h2>
+
+      <p class="section-description">
+        AI-generated portfolio allocation based on
+        macroeconomic conditions, liquidity environment,
+        and market positioning.
+      </p>
+
+      <div id="allocationContainer"></div>
+
+    </div>
+
+  </section>
 
   <!-- FOOTER -->
 
@@ -600,7 +589,9 @@
 
   </footer>
 
-<script type="module" src="https://widgets.tradingview-widget.com/w/en/tv-mini-chart.js"></script>
+  <!-- JAVASCRIPT -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
 
@@ -610,18 +601,20 @@ async function loadMarketData() {
     "https://script.google.com/macros/s/AKfycbycHv4JGYZEubH0poM1LqqLDs6aWXRGleXu8LhmR9ooHEWAduXXAonKH19u805KjYOC/exec"
   );
 
-    const result = await response.json();
+  const result = await response.json();
 
-    const data = result.table;
+  const data = result.table;
 
+  document.getElementById(
+    "aiSummary"
+  ).innerText = result.summary;
+
+  const table =
     document.getElementById(
-      "aiSummary"
-    ).innerText = result.summary;
-
-  const table = document.getElementById("marketTable");
+      "marketTable"
+    );
 
   let html = `
-
     <tr>
       <th>Asset</th>
       <th>Direction</th>
@@ -629,7 +622,6 @@ async function loadMarketData() {
       <th>Trigger</th>
       <th>Next Event</th>
     </tr>
-
   `;
 
   for(let i = 1; i < data.length; i++){
@@ -650,14 +642,176 @@ async function loadMarketData() {
   }
 
   table.innerHTML = html;
+}
+
+async function loadAllocationData() {
+
+  const response = await fetch(
+    "https://script.google.com/macros/s/AKfycbycHv4JGYZEubH0poM1LqqLDs6aWXRGleXu8LhmR9ooHEWAduXXAonKH19u805KjYOC/exec"
+  );
+
+  const result = await response.json();
+  
+  console.log(result);
+
+  const allocation =
+    result.allocation;
+
+  const allocationSummary =
+    result.allocationSummary;
+
+  const container =
+    document.getElementById(
+      "allocationContainer"
+    );
+
+  const grouped = {};
+
+  for(let i = 1; i < allocation.length; i++){
+
+    const row = allocation[i];
+
+    const profile = row[0];
+    const asset = row[1];
+
+	const value = Number(row[2]) * 100;
+
+    if(!grouped[profile]){
+      grouped[profile] = [];
+    }
+
+    grouped[profile].push({
+      asset,
+      value
+    });
+
+  }
+
+  const commentaryMap = {};
+
+  for(let i = 1; i < allocationSummary.length; i++){
+
+    commentaryMap[
+      allocationSummary[i][0]
+    ] = allocationSummary[i][1];
+
+  }
+
+  Object.keys(grouped).forEach(profile => {
+
+    const chartId =
+      `chart-${profile}`;
+
+    let tableRows = "";
+
+    grouped[profile].forEach(item => {
+
+      tableRows += `
+        <tr>
+          <td>${item.asset}</td>
+		  <td>${(item.value).toFixed(0)}%</td>        
+		</tr>
+      `;
+
+    });
+
+    container.innerHTML += `
+
+      <div class="allocation-card">
+
+        <h3 class="strategy-title">
+          ${profile}
+        </h3>
+
+        <div class="allocation-grid">
+
+          <div class="chart-wrapper">
+            <canvas id="${chartId}"></canvas>
+          </div>
+
+          <div>
+
+            <table class="allocation-table">
+              ${tableRows}
+            </table>
+
+            <p class="strategy-commentary">
+              ${commentaryMap[profile]}
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    `;
+
+    const ctx =
+      document
+        .getElementById(chartId)
+        .getContext('2d');
+
+    new Chart(ctx, {
+
+      type: 'doughnut',
+
+      data: {
+
+        labels:
+          grouped[profile]
+            .map(x => x.asset),
+
+        datasets: [{
+
+          data:
+            grouped[profile]
+              .map(x => x.value),
+
+          backgroundColor: [
+            "#3b82f6",
+            "#06b6d4",
+            "#10b981",
+            "#f59e0b",
+            "#ef4444",
+            "#8b5cf6"
+          ],
+
+          borderWidth: 0
+
+        }]
+
+      },
+
+      options: {
+
+        responsive: true,
+
+        maintainAspectRatio: false,
+
+        plugins: {
+
+          legend: {
+
+            position: 'bottom',
+
+            labels: {
+              color: "#f3f4f6"
+            }
+
+          }
+
+        }
+
+      }
+
+    });
+
+  });
 
 }
 
 loadMarketData();
+loadAllocationData();
 
 </script>
-
-</body>
-
-</html>
-```
