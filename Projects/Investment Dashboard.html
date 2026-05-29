@@ -252,6 +252,52 @@
       max-width:1100px;
       margin:auto;
     }
+    
+    .ai-table-card{
+      background:#111827;
+      border-radius:24px;
+      padding:30px;
+      border:1px solid rgba(255,255,255,0.05);
+      overflow-x:auto;
+      margin-top:40px;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+    }
+
+    th{
+      text-align:left;
+      padding:18px;
+      color:#60a5fa;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    td{
+      padding:18px;
+      border-bottom:1px solid rgba(255,255,255,0.05);
+      color:#d1d5db;
+      vertical-align:top;
+    }
+
+    .summary-card{
+      margin-top:40px;
+      background:#111827;
+      border-radius:24px;
+      padding:35px;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .summary-card h3{
+      margin-bottom:20px;
+      font-size:28px;
+    }
+
+    .summary-card p{
+      color:#9ca3af;
+      line-height:1.8;
+    }
 
     /* FOOTER */
 
@@ -507,6 +553,43 @@
 
 </section>
 
+<section id="ai-commentary">
+
+  <div class="macro-container">
+
+    <h2 class="section-title">
+      AI Market Commentary
+    </h2>
+
+    <p class="section-description">
+      AI-assisted interpretation of macroeconomic conditions,
+      liquidity environment, and market positioning.
+    </p>
+
+    <div class="ai-table-card">
+
+      <table id="marketTable">
+
+      </table>
+
+    </div>
+
+    <div class="summary-card">
+
+      <h3>
+        AI Summary
+      </h3>
+
+      <p id="aiSummary">
+        Loading summary...
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
   <!-- FOOTER -->
 
   <footer>
@@ -518,6 +601,62 @@
   </footer>
 
 <script type="module" src="https://widgets.tradingview-widget.com/w/en/tv-mini-chart.js"></script>
+
+<script>
+
+async function loadMarketData() {
+
+  const response = await fetch(
+    "https://script.google.com/macros/s/AKfycbz-Qg48JhPumYzFi9qTGE_YQDEkej2DVNdeofDQb6h7lfxCO99Nk_P2WWkHOX4EA0X0/exec"
+  );
+
+    const result = await response.json();
+
+    const data = result.table;
+
+    document.getElementById(
+      "aiSummary"
+    ).innerText = result.summary;
+
+  const table = document.getElementById("marketTable");
+
+  let html = `
+
+    <tr>
+      <th>Asset</th>
+      <th>Direction</th>
+      <th>Conviction</th>
+      <th>Trigger</th>
+      <th>Next Event</th>
+    </tr>
+
+  `;
+
+  for(let i = 1; i < data.length; i++){
+
+    const row = data[i];
+
+    if(!row[0]) continue;
+
+    html += `
+      <tr>
+        <td>${row[0]}</td>
+        <td>${row[3]}</td>
+        <td>${row[4]}</td>
+        <td>${row[5]}</td>
+        <td>${row[6]}</td>
+      </tr>
+    `;
+  }
+
+  table.innerHTML = html;
+
+}
+
+loadMarketData();
+
+</script>
+
 </body>
 
 </html>
