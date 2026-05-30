@@ -15,8 +15,6 @@
     rel="stylesheet"
   >
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
   <style>
 
     *{
@@ -281,11 +279,6 @@
       margin-bottom:25px;
     }
 
-    .chart-wrapper{
-      width:320px;
-      margin:auto;
-    }
-
     .allocation-table{
       width:100%;
     }
@@ -301,12 +294,17 @@
       line-height:1.8;
     }
     
-    .chart-wrapper{
-      width:320px;
-      height:320px;
-      margin:auto;
-    }
+.chart-wrapper{
+  width:320px;
+  height:320px;
+  position:relative;
+  margin:auto;
+}
 
+.chart-wrapper canvas{
+  width:100% !important;
+  height:100% !important;
+}
     /* FOOTER */
 
     footer{
@@ -651,14 +649,9 @@ async function loadAllocationData() {
   );
 
   const result = await response.json();
-  
-  console.log(result);
 
-  const allocation =
-    result.allocation;
-
-  const allocationSummary =
-    result.allocationSummary;
+  const allocation = result.allocation;
+  const allocationSummary = result.allocationSummary;
 
   const container =
     document.getElementById(
@@ -673,8 +666,7 @@ async function loadAllocationData() {
 
     const profile = row[0];
     const asset = row[1];
-
-	const value = Number(row[2]) * 100;
+    const value = Number(row[2]) * 100;
 
     if(!grouped[profile]){
       grouped[profile] = [];
@@ -697,10 +689,12 @@ async function loadAllocationData() {
 
   }
 
+  let html = "";
+
   Object.keys(grouped).forEach(profile => {
 
     const chartId =
-      `chart-${profile}`;
+      `chart-${profile.toLowerCase().trim()}`;
 
     let tableRows = "";
 
@@ -709,14 +703,13 @@ async function loadAllocationData() {
       tableRows += `
         <tr>
           <td>${item.asset}</td>
-		  <td>${(item.value).toFixed(0)}%</td>        
-		</tr>
+          <td>${item.value.toFixed(0)}%</td>
+        </tr>
       `;
 
     });
 
-    container.innerHTML += `
-
+    html += `
       <div class="allocation-card">
 
         <h3 class="strategy-title">
@@ -736,7 +729,7 @@ async function loadAllocationData() {
             </table>
 
             <p class="strategy-commentary">
-              ${commentaryMap[profile]}
+              ${commentaryMap[profile] || ""}
             </p>
 
           </div>
@@ -744,66 +737,91 @@ async function loadAllocationData() {
         </div>
 
       </div>
-
     `;
 
-    const ctx =
-      document
-        .getElementById(chartId)
-        .getContext('2d');
+  });
 
-    new Chart(ctx, {
+  container.innerHTML = html;
 
-      type: 'doughnut',
+  requestAnimationFrame(() => {
 
-      data: {
+    Object.keys(grouped).forEach(profile => {
 
-        labels:
-          grouped[profile]
-            .map(x => x.asset),
+      const chartId =
+        `chart-${profile.toLowerCase().trim()}`;
 
-        datasets: [{
+      const canvas =
+        document.getElementById(chartId);
 
-          data:
+      if(!canvas) return;
+
+      new Chart(canvas, {
+
+        type: "doughnut",
+
+        data: {
+
+          labels:
             grouped[profile]
-              .map(x => x.value),
+              .map(x => x.asset),
 
-          backgroundColor: [
-            "#3b82f6",
-            "#06b6d4",
-            "#10b981",
-            "#f59e0b",
-            "#ef4444",
-            "#8b5cf6"
-          ],
+          datasets: [{
 
-          borderWidth: 0
+            data:
+              grouped[profile]
+                .map(x => x.value),
 
-        }]
+            backgroundColor: [
+              "#3b82f6",
+              "#06b6d4",
+              "#10b981",
+              "#f59e0b",
+              "#ef4444",
+              "#8b5cf6"
+            ],
 
-      },
+            borderWidth: 0
 
-      options: {
+          }]
 
-        responsive: true,
+        },
 
-        maintainAspectRatio: false,
+       options: {
 
-        plugins: {
+  responsive: true,
+  maintainAspectRatio: false,
 
-          legend: {
+  plugins: {
 
-            position: 'bottom',
+    legend: {
 
-            labels: {
-              color: "#f3f4f6"
-            }
+      position: "bottom",
 
-          }
+      labels: {
+        color: "#f3f4f6"
+      }
+
+    },
+
+    tooltip: {
+
+      callbacks: {
+
+        label: function(context) {
+
+          return `${context.label}: ${context.raw}%`;
 
         }
 
       }
+
+    }
+
+  }
+
+}
+
+      });
 
     });
 
