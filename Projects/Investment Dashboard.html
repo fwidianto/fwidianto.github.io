@@ -374,6 +374,60 @@
 
 }
 
+.news-link{
+
+  color:#60a5fa;
+
+}
+
+.news-link:hover{
+
+  text-decoration:underline;
+
+}
+
+.news-grid{
+  display:grid;
+  gap:20px;
+}
+
+.news-card{
+  display:block;
+  background:#111827;
+  border:1px solid rgba(255,255,255,0.05);
+  border-radius:18px;
+  padding:20px;const news = result.news
+  .slice(1)
+  .sort(
+    (a,b) =>
+      new Date(b[0]) - new Date(a[0])
+  );
+  transition:0.25s;
+}
+
+.news-card:hover{
+  transform:translateY(-3px);
+  border-color:#60a5fa;
+}
+
+.news-topic{
+  color:#60a5fa;
+  font-size:14px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.news-title{
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:10px;
+}
+
+.news-meta{
+  color:#9ca3af;
+  font-size:14px;
+}
+
     /* FOOTER */
 
     footer{
@@ -607,6 +661,8 @@
 
 </section>
 
+
+
   <!-- AI COMMENTARY -->
 
   <section id="ai-commentary">
@@ -665,6 +721,29 @@
     </div>
 
   </section>
+
+  <!-- MARKET NEWS -->
+
+<section id="market-news">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Market News
+    </h2>
+
+    <p class="section-description">
+      Latest macroeconomic, equity, crypto and Indonesia market developments.
+    </p>
+
+<div class="card">
+
+  <div id="newsContainer"></div>
+
+</div>
+  </div>
+
+</section>
 
   <!-- FOOTER -->
 
@@ -967,10 +1046,68 @@ async function loadCentralBankData(){
   container.innerHTML = html;
 
 }
+async function loadNewsData(){
+
+  const response = await fetch(
+    "https://script.google.com/macros/s/AKfycbycHv4JGYZEubH0poM1LqqLDs6aWXRGleXu8LhmR9ooHEWAduXXAonKH19u805KjYOC/exec"
+  );
+
+  const result =
+    await response.json();
+
+const news = result.news
+  .slice(1)
+  .sort(
+    (a,b) =>
+      new Date(b[0]) - new Date(a[0])
+  );
+
+  const container =
+    document.getElementById(
+      "newsContainer"
+    );
+
+let html = '<div class="news-grid">';
+
+for(let i = 1; i < Math.min(news.length,31); i++){
+
+  const row = news[i];
+
+  html += `
+
+    <a
+      href="${row[5]}"
+      target="_blank"
+      class="news-card"
+    >
+
+      <div class="news-topic">
+        ${row[2]}
+      </div>
+
+      <div class="news-title">
+        ${row[3]}
+      </div>
+
+      <div class="news-meta">
+        ${row[4]} • ${row[0]}
+      </div>
+
+    </a>
+
+  `;
+}
+
+html += '</div>';
+
+  container.innerHTML = html;
+
+}
 
 loadMarketData();
 loadAllocationData();
 loadCentralBankData();
+loadNewsData();
 
 
 </script>
