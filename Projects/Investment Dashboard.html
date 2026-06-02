@@ -544,8 +544,7 @@
         </h2>
 
         <p>
-          This dashboard aggregates market intelligence into a single operational view
-          for monitoring liquidity, positioning, macro conditions, and overall risk sentiment.
+          This dashboard monitor current investment position, aggregates the sum of investment, revealing profit and loss for each instrument
         </p>
 
         <div class="dashboard-tags">
@@ -1073,6 +1072,18 @@ for(let i = 1; i < Math.min(news.length,31); i++){
 
   const row = news[i];
 
+  const newsDate = new Date(row[0]);
+
+  const formattedDate =
+  newsDate.toLocaleDateString(
+    "en-GB",
+    {
+      day: "2-digit",
+      month: "short",
+      year: "numeric"
+    }
+  );
+
   html += `
 
     <a
@@ -1090,7 +1101,7 @@ for(let i = 1; i < Math.min(news.length,31); i++){
       </div>
 
       <div class="news-meta">
-        ${row[4]} • ${row[0]}
+        ${row[4]} • ${formattedDate}
       </div>
 
     </a>
