@@ -989,8 +989,8 @@ async function loadMarketData() {
 
   const data = result.table;
 
-  document.getElementById("lastUpdated").innerHTML =
-  `Last Updated: ${new Date().toLocaleString()}`;
+document.getElementById("lastUpdated").innerHTML =
+  `Last Updated: ${result.lastUpdate}`;
   
   document.getElementById(
     "aiSummary"
