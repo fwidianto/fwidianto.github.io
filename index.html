@@ -71,18 +71,74 @@
       border-bottom:1px solid rgba(255,255,255,0.05);
     }
 
-    .nav-container{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:20px 0;
-    }
+    .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+}
 
-    .logo{
-      font-size:22px;
-      font-weight:700;
-      letter-spacing:1px;
-    }
+.logo {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Main button */
+.dropbtn {
+  color: #dbeafe;
+  text-decoration: none;
+  padding: 10px 14px;
+  display: inline-block;
+}
+
+/* Dropdown menu (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+
+  background: #111a2e;
+  min-width: 220px;
+
+  border: 1px solid #1f2a44;
+  border-radius: 10px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  z-index: 999;
+}
+
+/* Links inside dropdown */
+.dropdown-content a {
+  display: block;
+  padding: 10px 12px;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.dropdown-content a:hover {
+  background: #0f172a;
+  color: #38bdf8;
+}
+
+/* SHOW on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Hover effect on main button */
+.dropbtn:hover {
+  color: #38bdf8;
+}
+
+   
 
     .nav-links{
       display:flex;
@@ -497,19 +553,28 @@
 
   <!-- NAVBAR -->
 
-  <nav>
-    <div class="container nav-container">
+<nav>
+  <div class="container nav-container">
 
-      <div class="logo">
-        FW.
-      </div>
+    <div class="logo">
+      FW.
+    </div>
 
-      <div class="nav-links">
-        <a href="Projects/Investment Dashboard.html">Projects</a>
+    <div class="nav-links">
+
+      <div class="dropdown">
+        <a href="#" class="dropbtn">Projects ▾</a>
+
+        <div class="dropdown-content">
+          <a href="Projects/Investment Dashboard.html">📊 Investment Dashboard</a>
+          <a href="Projects/Web Scraping.html">🧾 Web Scraping Project</a>
+        </div>
       </div>
 
     </div>
-  </nav>
+
+  </div>
+</nav>
 
   <!-- HERO -->
 
