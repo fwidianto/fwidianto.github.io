@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Web Scraping Project</title>
+
+<style>
+  :root {
+    --bg: #0b1220;
+    --panel: #111a2e;
+    --panel-2: #0f172a;
+    --border: #1f2a44;
+    --text: #dbeafe;
+    --muted: #94a3b8;
+    --accent: #38bdf8;
+    --good: #22c55e;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  /* Top bar (matches dashboard feel) */
+  .topbar {
+    background: rgba(17, 26, 46, 0.9);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(8px);
+  }
+
+  .topbar h1 {
+    font-size: 16px;
+    margin: 0;
+    letter-spacing: 0.5px;
+  }
+
+  .badge {
+    font-size: 12px;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--muted);
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 24px;
+  }
+
+  /* Grid layout like dashboard */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+  }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+  }
+
+  .span-12 { grid-column: span 12; }
+  .span-6 { grid-column: span 6; }
+  .span-4 { grid-column: span 4; }
+
+  h2 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+  }
+
+  p, li {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  ul {
+    padding-left: 18px;
+  }
+
+  .stat {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .good {
+    color: var(--good);
+  }
+
+  code {
+    background: var(--panel-2);
+    padding: 2px 6px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .span-6, .span-4 {
+      grid-column: span 12;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <h1>📡 Web Scraping Automation Project</h1>
+  <div class="badge">Portfolio Module</div>
+</div>
+
+<div class="container">
+
+  <div class="grid">
+
+    <!-- Overview -->
+    <div class="card span-12">
+      <h2>PROJECT OVERVIEW</h2>
+      <p>
+        Automated scraping system that extracts HS Code import document data and structures it into Excel for analysis and reporting.
+        Built to eliminate manual data entry and improve consistency in trade data workflows.
+      </p>
+    </div>
+
+    <!-- Key stat -->
+    <div class="card span-4">
+      <h2>IMPACT</h2>
+      <div class="stat good">-80% Time</div>
+      <p>Manual processing reduced significantly through automation.</p>
+    </div>
+
+    <div class="card span-4">
+      <h2>DATA SOURCE</h2>
+      <div class="stat">Web + Excel</div>
+      <p>Batch HS Code extraction with structured parsing.</p>
+    </div>
+
+    <div class="card span-4">
+      <h2>AUTOMATION</h2>
+      <div class="stat">Python</div>
+      <p>Scheduled scraping + Excel pipeline.</p>
+    </div>
+
+    <!-- Tech stack -->
+    <div class="card span-6">
+      <h2>TECH STACK</h2>
+      <ul>
+        <li>Python (automation & scraping)</li>
+        <li>BeautifulSoup / Requests</li>
+        <li>OpenPyXL (Excel processing)</li>
+        <li>Google Sheets API (optional sync)</li>
+        <li>Windows Task Scheduler</li>
+      </ul>
+    </div>
+
+    <!-- Workflow -->
+    <div class="card span-6">
+      <h2>WORKFLOW</h2>
+      <ul>
+        <li>Load HS Code list from Excel</li>
+        <li>Detect missing rows automatically</li>
+        <li>Scrape data from target web source</li>
+        <li>Clean + normalize dataset</li>
+        <li>Write back into structured Excel sheets</li>
+      </ul>
+    </div>
+
+    <!-- Challenge -->
+    <div class="card span-12">
+      <h2>CHALLENGE & SOLUTION</h2>
+      <p>
+        The main challenge was inconsistent HTML structure and misaligned Excel indexing.
+        This was solved by implementing dynamic row mapping and validation checks before writing data.
+      </p>
+    </div>
+
+    <!-- GitHub -->
+    <div class="card span-12">
+      <h2>CODE</h2>
+      <p>
+        View repository: <a href="#">GitHub Link (replace later)</a><br/>
+        Tip: sanitize credentials and file paths before publishing.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  Built as part of Personal Data Automation Portfolio
+</footer>
+
+</body>
+</html>
