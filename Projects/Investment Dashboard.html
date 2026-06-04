@@ -92,25 +92,86 @@
       padding:20px 0;
     }
 
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropbtn {
+      color: #dbeafe;
+      text-decoration: none;
+      padding: 10px 14px;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+
+      background: #111a2e;
+      min-width: 220px;
+
+      border: 1px solid #1f2a44;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      z-index: 999;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 12px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .dropdown-content a:hover {
+      background: #0f172a;
+      color: #38bdf8;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropbtn:hover {
+      color: #38bdf8;
+    }
     .logo{
       font-size:22px;
       font-weight:700;
       letter-spacing:1px;
     }
 
-    .nav-links{
-      display:flex;
-      gap:30px;
+    .nav-links {
+      display: flex;
+      align-items: center; /* ✅ THIS fixes alignment */
+      gap: 30px;
     }
 
-    .nav-links a{
-      color:#d1d5db;
-      transition:0.3s;
+    /* make Home behave like dropdown trigger */
+    .nav-links a {
+      color: #d1d5db;
+      transition: 0.3s;
+      padding: 10px 14px; /* ✅ IMPORTANT: unify spacing */
+      border-radius: 8px;
     }
 
-    .nav-links a:hover{
-      color:#60a5fa;
+    /* hover consistency */
+    .nav-links a:hover {
+      color: #60a5fa;
+      background: rgba(96,165,250,0.08);
     }
+
+    /* normalize both items */
+    .nav-item {
+      display: flex;
+      align-items: center;
+    }
+
 
     /* HERO */
 
@@ -603,6 +664,7 @@
       .dashboard-card h2{
         font-size:32px;
       }
+      
 
     }
 
@@ -614,22 +676,32 @@
 
   <!-- NAVBAR -->
 
-  <nav>
+<nav>
 
-    <div class="container nav-container">
+  <div class="container nav-container">
 
-      <div class="logo">
-        FW.
-      </div>
-
-      <div class="nav-links">
-        <a href="../index.html">Home</a>
-        <a href="#">Projects</a>
-      </div>
-
+    <div class="logo">
+      FW.
     </div>
 
-  </nav>
+   <div class="nav-links">
+
+  <a class="nav-item" href="../index.html">Home</a>
+
+  <div class="dropdown nav-item">
+    <a href="#" class="dropbtn">Projects ▾</a>
+
+    <div class="dropdown-content">
+      <a href="Investment Dashboard.html">📊 Investment Dashboard</a>
+      <a href="Web Scraping.html">🧾 Web Scraping Project</a>
+    </div>
+  </div>
+
+</div>
+
+  </div>
+
+</nav>
 
   <!-- HERO -->
 
