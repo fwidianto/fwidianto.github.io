@@ -55,6 +55,92 @@
     color: var(--muted);
   }
 
+  nav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+  background: rgba(17, 26, 46, 0.9);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* unify ALL nav items (important fix) */
+.nav-links a,
+.dropbtn {
+  display: flex;
+  align-items: center;
+
+  padding: 10px 14px;
+  border-radius: 8px;
+
+  color: #d1d5db;
+  transition: 0.3s;
+}
+
+/* hover consistency */
+.nav-links a:hover,
+.dropbtn:hover {
+  color: var(--accent);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+/* dropdown */
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+
+  background: var(--panel);
+  min-width: 220px;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: var(--muted);
+  border-radius: 0;
+}
+
+.dropdown-content a:hover {
+  background: var(--panel-2);
+  color: var(--accent);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
   .container {
     max-width: 1100px;
     margin: auto;
@@ -139,7 +225,7 @@
 
 <body>
 
-  <nav>
+<nav>
 
   <div class="container nav-container">
 
@@ -147,29 +233,24 @@
       FW.
     </div>
 
-   <div class="nav-links">
+    <div class="nav-links">
 
-  <a class="nav-item" href="../index.html">Home</a>
+      <a href="../index.html">Home</a>
 
-  <div class="dropdown nav-item">
-    <a href="#" class="dropbtn">Projects ▾</a>
+      <div class="dropdown">
+        <div class="dropbtn">Projects ▾</div>
 
-    <div class="dropdown-content">
-      <a href="Investment Dashboard.html">📊 Investment Dashboard</a>
-      <a href="WebScrapping.html">🧾 Web Scraping Project</a>
+        <div class="dropdown-content">
+          <a href="Investment Dashboard.html">📊 Investment Dashboard</a>
+          <a href="WebScraping.html">🧾 Web Scraping Project</a>
+        </div>
+      </div>
+
     </div>
-  </div>
-
-</div>
 
   </div>
 
 </nav>
-
-<div class="topbar">
-  <h1>📡 Web Scraping Automation Project</h1>
-  <div class="badge">Portfolio Module</div>
-</div>
 
 <div class="container">
 
