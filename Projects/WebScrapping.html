@@ -40,101 +40,333 @@
 
 </nav>
 
-  <!-- HERO -->
 
-  <section class="hero">
-    
+<!-- HERO -->
 
-    <div class="container">
+<section class="hero">
 
-      <div class="hero-subtitle">
-        Featured Analytics Project
-      </div>
+  <div class="container">
+<div class="hero-subtitle">
+  Data Automation & Trade Compliance Project
+</div>
 
-      <h1>
-        Automated Web Scrapping Project
-      </h1>
+<h1>
+  HS Code Trade Compliance Data Extraction System
+</h1>
 
-      <p>
-        Automated scraping system that extracts HS Code import document data and structures it into Excel for analysis and reporting.
-        Built to eliminate manual data entry and improve consistency in trade data workflows.
-      </p>
+<p>
+  Designed and developed an automated data pipeline that retrieves tariff rates and import licensing requirements from Indonesia's National Single Window (INSW) portal. The solution eliminates repetitive manual lookups by collecting, structuring, and exporting regulatory data into Excel and JSON formats for operational reporting and analysis.
+</p>
 
-    </div>
+  </div>
 
-  </section>
+</section>
 
 <div class="container">
 
   <div class="grid">
+<!-- KEY STATS -->
 
-    <!-- Key stat -->
-    <div class="card span-4">
-      <h2>IMPACT</h2>
-      <div class="stat good">-80% Time</div>
-      <p>Manual processing reduced significantly through automation.</p>
-    </div>
+<div class="card span-4">
 
-    <div class="card span-4">
-      <h2>DATA SOURCE</h2>
-      <div class="stat">Web + Excel</div>
-      <p>Batch HS Code extraction with structured parsing.</p>
-    </div>
+  <h2>IMPACT</h2>
 
-    <div class="card span-4">
-      <h2>AUTOMATION</h2>
-      <div class="stat">Python</div>
-      <p>Scheduled scraping + Excel pipeline.</p>
-    </div>
+  <div class="stat good">
+    Significant Time Savings
+  </div>
 
-    <!-- Tech stack -->
-    <div class="card span-6">
-      <h2>TECH STACK</h2>
-      <ul>
-        <li>Python (automation & scraping)</li>
-        <li>BeautifulSoup / Requests</li>
-        <li>OpenPyXL (Excel processing)</li>
-        <li>Google Sheets API (optional sync)</li>
-        <li>Windows Task Scheduler</li>
-      </ul>
-    </div>
+  <p>
+    Reduced manual HS Code research and data entry effort through workflow automation.
+  </p>
 
-    <!-- Workflow -->
-    <div class="card span-6">
-      <h2>WORKFLOW</h2>
-      <ul>
-        <li>Load HS Code list from Excel</li>
-        <li>Detect missing rows automatically</li>
-        <li>Scrape data from target web source</li>
-        <li>Clean + normalize dataset</li>
-        <li>Write back into structured Excel sheets</li>
-      </ul>
-    </div>
+</div>
 
-    <!-- Challenge -->
-    <div class="card span-12">
-      <h2>CHALLENGE & SOLUTION</h2>
-      <p>
-        The main challenge was inconsistent HTML structure and misaligned Excel indexing.
-        This was solved by implementing dynamic row mapping and validation checks before writing data.
-      </p>
-    </div>
+<div class="card span-4">
 
-    <!-- GitHub -->
-    <div class="card span-12">
-      <h2>CODE</h2>
-      <p>
-        View repository: <a href="#">GitHub Link (replace later)</a><br/>
-        Tip: sanitize credentials and file paths before publishing.
-      </p>
+  <h2>DATA SOURCE</h2>
+
+  <div class="stat">
+    INSW Portal
+  </div>
+
+  <p>
+    Automated extraction of tariff and import regulation data from government trade systems.
+  </p>
+
+</div>
+
+<div class="card span-4">
+
+  <h2>AUTOMATION</h2>
+
+  <div class="stat">
+    Python Automation
+  </div>
+
+  <p>
+    End-to-end automation from source acquisition to structured output generation.
+  </p>
+
+</div>
+
+<!-- PROJECT OVERVIEW -->
+
+<div class="card span-12">
+
+  <h2>PROJECT OVERVIEW</h2>
+
+<p>
+At work, HS Code tariff and licensing information often needed to be checked manually through the INSW portal. When processing dozens or hundreds of products, this repetitive task became time-consuming and prone to human error.
+</p>
+
+<p>
+To improve efficiency, I developed a Python-based automation tool that automatically retrieves tariff and licensing data, structures it into Excel, and generates JSON outputs for reporting and analysis.
+</p>
+
+  <br>
+
+  <p>
+    This project automates the entire process by identifying incomplete records, retrieving regulatory information directly from the INSW portal, transforming unstructured content into structured datasets, and exporting the results into Excel and JSON files for downstream analysis.
+  </p>
+
+</div>
+
+<!-- TECH STACK -->
+
+<div class="card span-6">
+
+  <h2>TECH STACK</h2>
+
+  <ul>
+    <li>Python</li>
+    <li>Playwright (Browser Automation)</li>
+    <li>Regular Expressions (Pattern Extraction)</li>
+    <li>OpenPyXL (Excel Processing)</li>
+    <li>JSON Serialization</li>
+  </ul>
+
+</div>
+
+
+<!-- DATA EXTRACTED -->
+
+<div class="card span-12">
+
+  <h2>DATA EXTRACTED</h2>
+
+  <p>
+    The automation pipeline captures and structures the following regulatory information:
+  </p>
+
+  <br>
+
+  <ul>
+    <li>HS Code</li>
+    <li>BM MFN (Import Duty Rate)</li>
+    <li>PPN (VAT)</li>
+    <li>PPH API</li>
+    <li>PPH Non-API</li>
+    <li>Import Licensing Requirements</li>
+    <li>Customs Permit Codes</li>
+  </ul>
+
+</div>
+
+
+
+<!-- CHALLENGES -->
+
+<div class="card span-12">
+
+  <h2>TECHNICAL CHALLENGES & SOLUTIONS</h2>
+
+  <p>
+    The INSW portal does not provide a public API for accessing the required trade compliance data. To overcome this limitation, browser automation was implemented using Playwright to replicate user interactions such as searching HS Codes, opening tariff details, and navigating import regulation pages.
+  </p>
+
+  <br>
+
+  <p>
+    Regulatory information was embedded within unstructured page content rather than exposed through structured endpoints. Regular expressions were used to identify and extract tariff percentages, tax rates, permit names, and customs permit codes into a standardized format.
+  </p>
+
+  <br>
+
+  <p>
+    To improve processing efficiency, the system automatically detects incomplete records and only processes missing HS Codes rather than reprocessing the entire dataset.
+  </p>
+
+</div>
+</div>
+
+<section id="architecture">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      System Workflow
+    </h2>
+
+    <p class="section-description">
+      End-to-end automation process used to collect HS Code tariff and import licensing information from INSW and transform it into structured datasets.
+    </p>
+
+    <div class="architecture-card">
+
+      <!-- INPUT -->
+
+      <div class="arch-source">
+
+        <div class="arch-box">
+          <div class="arch-icon">📄</div>
+          <h4>Excel Input</h4>
+          <p>User Enters HS Codes</p>
+        </div>
+
+      </div>
+
+      <div class="arch-down">↓</div>
+
+      <!-- PROCESSING -->
+
+      <div class="arch-row">
+
+        <div class="arch-box">
+          <div class="arch-icon">🐍</div>
+          <h4>Python Script</h4>
+          <p>Load Workbook & Detect Missing Data</p>
+        </div>
+
+        <div class="arch-arrow">→</div>
+
+        <div class="arch-box">
+          <div class="arch-icon">🎭</div>
+          <h4>Playwright</h4>
+          <p>Browser Automation</p>
+        </div>
+
+        <div class="arch-arrow">→</div>
+
+        <div class="arch-box">
+          <div class="arch-icon">🏛️</div>
+          <h4>INSW Portal</h4>
+          <p>Trade Regulation Source</p>
+        </div>
+
+      </div>
+
+      <div class="arch-down">↓</div>
+
+      <!-- EXTRACTION -->
+
+      <div class="arch-row">
+
+        <div class="arch-box">
+          <div class="arch-icon">🔍</div>
+          <h4>Regex Engine</h4>
+          <p>Extract Tariffs & Permits</p>
+        </div>
+
+        <div class="arch-arrow">→</div>
+
+        <div class="arch-box">
+          <div class="arch-icon">📦</div>
+          <h4>JSON Object</h4>
+          <p>Structured Data Model</p>
+        </div>
+
+      </div>
+
+      <div class="arch-down">↓</div>
+
+      <!-- OUTPUT -->
+
+      <div class="arch-row">
+
+        <div class="arch-box">
+          <div class="arch-icon">📊</div>
+          <h4>HS Code Tarif</h4>
+          <p>Tariff & Tax Data</p>
+        </div>
+
+        <div class="arch-arrow">→</div>
+
+        <div class="arch-box">
+          <div class="arch-icon">📋</div>
+          <h4>HS Code Izin</h4>
+          <p>Import Permit Data</p>
+        </div>
+
+        <div class="arch-arrow">→</div>
+
+        <div class="arch-box">
+          <div class="arch-icon">💾</div>
+          <h4>Save Outputs</h4>
+          <p>Excel & JSON Files</p>
+        </div>
+
+      </div>
+
     </div>
 
   </div>
+
+</section>
+
+  <div class="grid">
+
+<!-- BUSINESS VALUE -->
+
+<div class="card span-12">
+
+  <h2>BUSINESS VALUE</h2>
+
+  <p>
+    This solution significantly reduces repetitive regulatory lookups while improving data consistency and accuracy. The resulting dataset can support import planning, tariff analysis, compliance reviews, procurement decisions, and integration with reporting dashboards.
+  </p>
+
+  <br>
+
+  <p>
+    The project demonstrates practical experience in browser automation, ETL pipeline design, data transformation, Excel automation, and structured data engineering.
+  </p>
+
+</div>
+
+<!-- CODE -->
+
+<div class="card span-12">
+
+  <h2>SOURCE CODE</h2>
+
+  <p>
+    GitHub repository available upon request.
+  </p>
+
+  <br>
+
+  <p>
+    Prior to publication, all local file paths, environment-specific settings, and sensitive information are removed to ensure security and portability.
+  </p>
+
+</div>
+
+  </div>
+
+
+
 </div>
 
 <footer>
-  Built as part of Personal Data Automation Portfolio
+
+Built as part of my Data Analytics, Automation, and Process Improvement Portfolio
+
 </footer>
+
+     
+      
+
+
 
 </body>
 </html>
