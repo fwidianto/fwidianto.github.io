@@ -5,222 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Web Scraping Project</title>
 
-<style>
-  :root {
-    --bg: #0b1220;
-    --panel: #111a2e;
-    --panel-2: #0f172a;
-    --border: #1f2a44;
-    --text: #dbeafe;
-    --muted: #94a3b8;
-    --accent: #38bdf8;
-    --good: #22c55e;
-  }
-
-  * {
-    box-sizing: border-box;
-  }
-
-  body {
-    margin: 0;
-    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto;
-    background: var(--bg);
-    color: var(--text);
-  }
-
-  /* Top bar (matches dashboard feel) */
-  .topbar {
-    background: rgba(17, 26, 46, 0.9);
-    border-bottom: 1px solid var(--border);
-    padding: 16px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    backdrop-filter: blur(8px);
-  }
-
-  .topbar h1 {
-    font-size: 16px;
-    margin: 0;
-    letter-spacing: 0.5px;
-  }
-
-  .badge {
-    font-size: 12px;
-    padding: 4px 10px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    color: var(--muted);
-  }
-
-  nav {
-  position: sticky;
-  top: 0;
-  z-index: 999;
-
-  background: rgba(17, 26, 46, 0.9);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(8px);
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 24px;
-}
-
-.logo {
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--text);
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-/* unify ALL nav items (important fix) */
-.nav-links a,
-.dropbtn {
-  display: flex;
-  align-items: center;
-
-  padding: 10px 14px;
-  border-radius: 8px;
-
-  color: #d1d5db;
-  transition: 0.3s;
-}
-
-/* hover consistency */
-.nav-links a:hover,
-.dropbtn:hover {
-  color: var(--accent);
-  background: rgba(56, 189, 248, 0.08);
-}
-
-/* dropdown */
-.dropdown {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0;
-
-  background: var(--panel);
-  min-width: 220px;
-
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
-.dropdown-content a {
-  display: block;
-  padding: 10px 12px;
-  font-size: 13px;
-  color: var(--muted);
-  border-radius: 0;
-}
-
-.dropdown-content a:hover {
-  background: var(--panel-2);
-  color: var(--accent);
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-  .container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 24px;
-  }
-
-  /* Grid layout like dashboard */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 16px;
-  }
-
-  .card {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px;
-  }
-
-  .span-12 { grid-column: span 12; }
-  .span-6 { grid-column: span 6; }
-  .span-4 { grid-column: span 4; }
-
-  h2 {
-    margin: 0 0 10px 0;
-    font-size: 14px;
-    color: var(--accent);
-    letter-spacing: 0.5px;
-  }
-
-  p, li {
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.6;
-  }
-
-  ul {
-    padding-left: 18px;
-  }
-
-  .stat {
-    font-size: 20px;
-    font-weight: 600;
-  }
-
-  .good {
-    color: var(--good);
-  }
-
-  code {
-    background: var(--panel-2);
-    padding: 2px 6px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-  }
-
-  a {
-    color: var(--accent);
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
-  footer {
-    text-align: center;
-    padding: 24px;
-    color: var(--muted);
-    font-size: 12px;
-  }
-
-  /* Responsive */
-  @media (max-width: 900px) {
-    .span-6, .span-4 {
-      grid-column: span 12;
-    }
-  }
-</style>
+<link rel="stylesheet" href="/CSS/project.css">
 </head>
 
 <body>
@@ -252,18 +37,33 @@
 
 </nav>
 
-<div class="container">
+  <!-- HERO -->
 
-  <div class="grid">
+  <section class="hero">
+    
 
-    <!-- Overview -->
-    <div class="card span-12">
-      <h2>PROJECT OVERVIEW</h2>
+    <div class="container">
+
+      <div class="hero-subtitle">
+        Featured Analytics Project
+      </div>
+
+      <h1>
+        Automated Web Scrapping Project
+      </h1>
+
       <p>
         Automated scraping system that extracts HS Code import document data and structures it into Excel for analysis and reporting.
         Built to eliminate manual data entry and improve consistency in trade data workflows.
       </p>
+
     </div>
+
+  </section>
+
+<div class="container">
+
+  <div class="grid">
 
     <!-- Key stat -->
     <div class="card span-4">
