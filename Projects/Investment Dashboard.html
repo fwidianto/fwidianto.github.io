@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link rel="icon" href="../Assets/favicon.svg">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Fauzan Widianto | Investment Analytics Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+<link rel="stylesheet" href="/CSS/project.css">
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+<nav>
+
+  <div class="container nav-container">
+
+    <div class="logo">
+      FW.
+    </div>
+
+   <div class="nav-links">
+
+  <a class="nav-item" href="../index.html">Home</a>
+
+  <div class="dropdown nav-item">
+    <a href="#" class="dropbtn">Projects ▾</a>
+
+    <div class="dropdown-content">
+      <a href="Investment Dashboard.html">📊 Investment Dashboard</a>
+      <a href="WebScrapping.html">🧾 Web Scraping Project</a>
+    </div>
+  </div>
+
+</div>
+
+  </div>
+
+</nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+    
+
+    <div class="container">
+
+      <div class="hero-subtitle">
+        Featured Analytics Project
+      </div>
+
+      <h1>
+        Investment Analytics Dashboard
+      </h1>
+
+      <p>
+        A personal analytics side project focused on monitoring markets in real time,
+        understanding macroeconomic conditions, and exploring data-driven approaches
+        to gain an analytical edge in the market.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- DASHBOARD -->
+
+  <section>
+
+    <div class="wide-container">
+
+      <div class="card dashboard-card">
+
+        <h2>
+          Dashboard Overview
+        </h2>
+
+        <p>
+          This dashboard monitor current investment position, aggregates the sum of investment, revealing profit and loss for each instrument
+        </p>
+
+        <div class="dashboard-tags">
+
+          <div class="tag">Google Sheets</div>
+          <div class="tag">Looker Studio</div>
+          <div class="tag">API Integration</div>
+          <div class="tag">Analytics</div>
+          <div class="tag">Automation</div>
+
+        </div>
+
+        <div class="dashboard-frame">
+
+          <iframe
+            height="1100"
+            src="https://datastudio.google.com/embed/reporting/2e5b7747-da98-4dff-9ee0-961e5620ad8c/page/Bc3yF"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- MARKET ENVIRONMENT -->
+
+  <section id="macro">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Market Environment
+      </h2>
+
+      <p class="section-description">
+        Monitoring macroeconomic indicators and liquidity-sensitive assets
+        to better understand broader market conditions.
+      </p>
+
+      <div class="macro-widget">
+
+        <div class="tradingview-widget-container__widget"></div>
+
+        <script
+          type="text/javascript"
+          src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js"
+          async>
+        {
+          "colorTheme": "dark",
+          "locale": "en",
+          "isTransparent": true,
+          "showSymbolLogo": true,
+          "backgroundColor": "#0b0f19",
+          "width": "100%",
+          "height": 500,
+          "symbolsGroups": [
+            {
+              "name": "Macro Environment",
+              "symbols": [
+                {"name":"TVC:USOIL","displayName":"Oil"},
+                {"name":"TVC:DXY","displayName":"US Dollar Index"},
+                {"name":"TVC:US10Y","displayName":"US 10Y Yield"},
+                {"name":"OANDA:XAUUSD","displayName":"Gold"},
+                {"name":"FOREXCOM:SPXUSD","displayName":"S&P 500"}
+              ]
+            },
+            {
+              "name": "Risk Assets",
+              "symbols": [
+                {"name":"BINANCE:BTCUSDT","displayName":"Bitcoin"},
+                {"name":"BINANCE:ETHUSDT","displayName":"Ethereum"},
+                {"name":"IDX:BBCA","displayName":"BBCA"}
+              ]
+            },
+            {
+              "name": "FX Market",
+              "symbols": [
+                {"name":"FX:USDJPY","displayName":"USDJPY"},
+                {"name":"FX_IDC:USDIDR","displayName":"USDIDR"}
+              ]
+            }
+          ]
+        }
+        </script>
+
+      </div>
+
+    </div>
+
+  </section>
+
+<section id="central-bank">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Central Bank Monitor
+    </h2>
+
+    <p class="section-description">
+      Monitoring policy rates across major central banks.
+    </p>
+
+    <div id="centralBankContainer"
+         class="central-bank-grid">
+    </div>
+
+  </div>
+
+</section>
+
+
+
+  <!-- AI COMMENTARY -->
+
+<div class="container">
+
+  <div id="lastUpdated"
+       class="last-updated">
+  </div>
+
+</div>
+  <section id="ai-commentary">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        AI Market Commentary
+      </h2>
+
+      <p class="section-description">
+        AI-assisted interpretation of macroeconomic conditions,
+        liquidity environment, and market positioning.
+      </p>
+
+      <div class="card table-card">
+
+        <table id="marketTable"></table>
+
+      </div>
+
+      <div class="card summary-card">
+
+        <h3>
+          AI Summary
+        </h3>
+
+        <p id="aiSummary">
+          Loading summary...
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ALLOCATION -->
+
+  <section id="portfolio-allocation">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        AI Portfolio Allocation
+      </h2>
+
+      <p class="section-description">
+        AI-generated portfolio allocation based on
+        macroeconomic conditions, liquidity environment,
+        and market positioning.
+      </p>
+
+      <div id="allocationContainer"></div>
+
+    </div>
+
+  </section>
+
+  <!-- MARKET NEWS -->
+
+<section id="market-news">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Market News
+    </h2>
+
+    <p class="section-description">
+      Latest macroeconomic, equity, crypto and Indonesia market developments.
+    </p>
+
+<div class="card">
+
+  <div id="newsContainer"></div>
+
+</div>
+  </div>
+
+</section>
+
+<section id="architecture">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      System Architecture
+    </h2>
+
+    <p class="section-description">
+      End-to-end automated data pipeline powering market monitoring,
+      AI analysis, and reporting.
+    </p>
+
+    <div class="architecture-card">
+
+      <div class="arch-source">
+
+        <div class="arch-box">
+          <div class="arch-icon">📡</div>
+          <h4>Market APIs</h4>
+          <p>News API, TradingView</p>
+        </div>
+
+      </div>
+
+      <div class="arch-down">↓</div>
+
+      <div class="arch-row">
+
+        <div class="arch-box">
+          <div class="arch-icon">⚙️</div>
+          <h4>Apps Script</h4>
+          <p>ETL Processing</p>
+        </div>
+
+        <div class="arch-arrow">→</div>
+
+        <div class="arch-box">
+          <div class="arch-icon">📊</div>
+          <h4>Google Sheets</h4>
+          <p>Data Storage</p>
+        </div>
+
+        <div class="arch-arrow">→</div>
+
+        <div class="arch-box">
+          <div class="arch-icon">🤖</div>
+          <h4>AI Analysis</h4>
+          <p>Gemini/OpenAI</p>
+        </div>
+
+      </div>
+
+      <div class="arch-down">↓</div>
+
+      <div class="arch-row">
+
+        <div class="arch-box">
+          <div class="arch-icon">🔗</div>
+          <h4>JSON API</h4>
+          <p>Apps Script Endpoint</p>
+        </div>
+
+        <div class="arch-arrow">→</div>
+
+        <div class="arch-box">
+          <div class="arch-icon">🌐</div>
+          <h4>Portfolio Site</h4>
+          <p>HTML + JS</p>
+        </div>
+
+        <div class="arch-arrow">→</div>
+
+        <div class="arch-box">
+          <div class="arch-icon">📈</div>
+          <h4>Looker Studio</h4>
+          <p>Reporting Layer</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container">
+      © 2026 Fauzan Widianto — Projects Portfolio
+    </div>
+
+  </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="./JS/investment dashboard.js"></script>
