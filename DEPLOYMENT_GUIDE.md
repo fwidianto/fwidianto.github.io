@@ -50,7 +50,7 @@ git clone git@github.com:fwidianto/fwidianto.github.io.git fwidianto-site
 cd fwidianto-site
 
 # Checkout the cleanup-audit branch
-git checkout repo-cleanup-audit
+git checkout main
 ```
 
 ### Step 4: Create Post-Receive Hook
@@ -78,7 +78,7 @@ FLASK_APP_DIR="/home/YOUR_USERNAME/portfolio-app"
 cd $GIT_DIR
 
 # Pull latest changes
-git pull origin repo-cleanup-audit
+git pull origin main
 
 # Sync portfolio-app folder to Flask app
 rsync -avz --delete $GIT_DIR/Projects/portfolio-app/ $FLASK_APP_DIR/
@@ -170,7 +170,7 @@ cat ~/.ssh/github_actions.pub >> ~/.ssh/authorized_keys
 ```bash
 # On PythonAnywhere
 cd ~/fwidianto-site
-git pull origin repo-cleanup-audit
+git pull origin main
 ```
 
 ### Trigger Web Reload
@@ -263,7 +263,7 @@ cd ~/portfolio-app && python app.py
 
 ## Notes
 
-- The `repo-cleanup-audit` branch contains all the portfolio app code
+- The `main` branch contains all the portfolio app code
 - When you push to this branch, you need to manually pull on PythonAnywhere (or set up the hook)
 - The GitHub Actions workflow file is already created in `.github/workflows/deploy.yml`
 - You need to merge the branch to `main` for automatic GitHub Pages deployment

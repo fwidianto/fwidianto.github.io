@@ -3,7 +3,7 @@ name: Deploy ERP Dashboard to PythonAnywhere
 on:
   push:
     branches:
-      - repo-cleanup-audit
+      - main
   workflow_dispatch:
 
 jobs:
@@ -38,8 +38,8 @@ jobs:
             
             cd ~/fwidianto.github.io
             git fetch origin
-            git checkout repo-cleanup-audit || git checkout -b repo-cleanup-audit origin/repo-cleanup-audit
-            git pull origin repo-cleanup-audit
+            git checkout main || git checkout -b main origin/main
+            git pull origin main
             
             # Create erp-dashboard directory
             mkdir -p ~/erp-dashboard/database ~/erp-dashboard/output

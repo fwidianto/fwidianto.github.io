@@ -37,7 +37,7 @@
 
 ### Portfolio (GitHub Pages)
 - **Repository**: `fwidianto/fwidianto.github.io`
-- **Branch**: `repo-cleanup-audit` (configured as GitHub Pages source)
+- **Branch**: `main` (configured as GitHub Pages source)
 - **URL**: https://fwidianto.github.io
 - **Responsibilities**:
   - Showcase all projects
@@ -48,7 +48,7 @@
 
 ### ERP Dashboard (PythonAnywhere)
 - **Repository**: `fwidianto/fwidianto.github.io` (same repo, different folder)
-- **Branch**: `repo-cleanup-audit`
+- **Branch**: `main`
 - **URL**: https://lasta.pythonanywhere.com
 - **Responsibilities**:
   - Full ERP analytics
@@ -64,7 +64,7 @@
 1. **Portfolio Configuration**
    - All navigation links updated
    - Links to ERP Dashboard at lasta.pythonanywhere.com
-   - GitHub Pages configured on repo-cleanup-audit branch
+   - GitHub Pages configured on main branch
    - Pages build and deployment working
 
 2. **ERP Dashboard Configuration**
@@ -217,7 +217,7 @@ fwidianto.github.io/
 
 ---
 
-## Commit History (repo-cleanup-audit)
+## Commit History (main)
 
 | Commit | Description |
 |--------|-------------|
@@ -241,5 +241,5 @@ fwidianto.github.io/
    - Verify navigation works both ways
 
 3. **Merge to main** (optional)
-   - Once verified, merge repo-cleanup-audit to main
+   - Once verified, merge main to main
    - Update GitHub Pages source to main branch
