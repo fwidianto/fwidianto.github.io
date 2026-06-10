@@ -1,0 +1,35 @@
+name: Deploy to PythonAnywhere
+
+on:
+  push:
+    branches:
+      - repo-cleanup-audit
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Deploy to PythonAnywhere via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.PYTHONANYWHERE_HOST }}
+          username: ${{ secrets.PYTHONANYWHERE_USERNAME }}
+          key: ${{ secrets.PYTHONANYWHERE_SSH_KEY }}
+          script: |
+            cd ~/fwidianto.github.io
+            
+            # Pull latest changes
+            git pull origin ${{ github.ref_name }}
+            
+            # Sync portfolio-app folder
+            rsync -avz --delete ~/fwidianto.github.io/Projects/portfolio-app/ ~/portfolio-app/
+            
+            # Touch wsgi to reload
+            touch ~/portfolio-app_wsgi.py
