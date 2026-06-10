@@ -5,16 +5,26 @@ A professional interface for browsing, searching, filtering, and inspecting ERP 
 
 import sqlite3
 import os
-from flask import Flask, render_template, request, jsonify, send_file
+from flask import Flask, render_template, request, jsonify, send_file, send_from_directory
 from contextlib import contextmanager
 from datetime import datetime
 import io
 import csv
+import os
 
 app = Flask(__name__)
 # Use absolute path for PythonAnywhere
 db_path = os.path.expanduser(os.environ.get('DATABASE_PATH', '~/AI-Projects/database/erp_database.db'))
 app.config['DATABASE'] = db_path
+
+# Get the path to the Assets folder (parent directory's Assets)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ASSETS_DIR = os.path.join(BASE_DIR, 'Assets')
+
+@app.route('/favicon.svg')
+def favicon():
+    """Serve the favicon from the parent directory's Assets folder"""
+    return send_from_directory(ASSETS_DIR, 'favicon.svg', mimetype='image/svg+xml')
 
 # Add max/min to Jinja2 environment
 from jinja2 import Environment
