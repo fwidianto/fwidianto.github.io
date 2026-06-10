@@ -4,196 +4,96 @@
   <link rel="icon" type="image/svg+xml" href="../../Assets/favicon.svg">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fauzan Widianto | AI-ERP Intelligence Dashboard</title>
+  <title>Fauzan Widianto | Portfolio</title>
+  <meta http-equiv="refresh" content="0; url=https://fwidianto.pythonanywhere.com/">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/CSS/project.css">
+  <link rel="stylesheet" href="../../CSS/main.css">
+
+  <style>
+    .redirect-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .redirect-card {
+      background: linear-gradient(145deg, #111827, #1f2937);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 28px;
+      padding: 60px;
+      max-width: 600px;
+    }
+    .redirect-icon {
+      font-size: 64px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    p {
+      color: #9ca3af;
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+    .btn {
+      padding: 16px 32px;
+      border-radius: 14px;
+      font-weight: 600;
+      display: inline-block;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn-primary {
+      background: #3b82f6;
+      color: white;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background: #2563eb;
+    }
+  </style>
 </head>
 
 <body>
 
-<nav>
-
-  <div class="container nav-container">
-
-    <a href="../../index.html" class="logo">
-      FW.
-    </a>
-
-    <div class="nav-links">
-
-      <a href="../../index.html">Home</a>
-
-      <div class="dropdown">
-        <a href="#" class="dropbtn">Projects ▾</a>
-
-        <div class="dropdown-content">
-          <a href="../Investment Dashboard.html">📊 Investment Dashboard</a>
-          <a href="index.html">🧠 AI-ERP Dashboard</a>
-          <a href="../WebScrapping.html">🧾 HS Code Automation</a>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="container nav-container">
+      <a href="../../index.html" class="logo">FW.</a>
+      <div class="nav-links">
+        <a href="../../index.html">Home</a>
+        <div class="dropdown">
+          <a href="#" class="dropbtn">Projects ▾</a>
+          <div class="dropdown-content">
+            <a href="../Investment Dashboard.html">📊 Investment Dashboard</a>
+            <a href="https://fwidianto.pythonanywhere.com/">🧠 Portfolio</a>
+            <a href="../WebScrapping.html">🧾 HS Code Automation</a>
+          </div>
         </div>
       </div>
-
     </div>
+  </nav>
 
-  </div>
-
-</nav>
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-  <div class="container">
-<div class="hero-subtitle">
-  Flask Web Application
-</div>
-
-<h1>
-  AI-ERP Intelligence Dashboard
-</h1>
-
-<p>
-  A sophisticated ERP data exploration and analytics platform featuring AI-powered executive insights, 
-  interactive dashboards, and intelligent business recommendations based on operational data.
-</p>
-
-  </div>
-
-</section>
-
-<div class="container">
-
-  <div class="card span-12">
-
-    <h2>🚀 Application Status</h2>
-
-    <p>
-      This is a Python Flask application that requires a web server to run. 
-      The live version is deployed on PythonAnywhere and accessible at the link below.
-    </p>
-
-    <br>
-
-    <a 
-      href="https://fwidianto.pythonanywhere.com/" 
-      target="_blank" 
-      rel="noopener noreferrer"
-      class="news-link"
-      style="font-size: 18px;"
-    >
-      🔗 Open AI-ERP Intelligence Dashboard
-    </a>
-
-    <br><br>
-
-    <p>
-      <strong>Note:</strong> The Flask application runs on PythonAnywhere and is not a static GitHub Pages site.
-      For local development, follow the instructions in the project's README.md.
-    </p>
-
-  </div>
-
-</div>
-
-<section id="architecture">
-
-  <div class="container">
-
-    <h2 class="section-title">
-      System Architecture
-    </h2>
-
-    <p class="section-description">
-      A full-stack Flask application with intelligent ERP data analysis capabilities.
-    </p>
-
-    <div class="architecture-card">
-
-      <div class="arch-source">
-
-        <div class="arch-box">
-          <div class="arch-icon">🗄️</div>
-          <h4>SQLite Database</h4>
-          <p>ERP Data Storage</p>
-        </div>
-
-      </div>
-
-      <div class="arch-down">↓</div>
-
-      <div class="arch-row">
-
-        <div class="arch-box">
-          <div class="arch-icon">🐍</div>
-          <h4>Flask Backend</h4>
-          <p>API & Data Processing</p>
-        </div>
-
-        <div class="arch-arrow">→</div>
-
-        <div class="arch-box">
-          <div class="arch-icon">🤖</div>
-          <h4>AI Advisor</h4>
-          <p>Business Intelligence</p>
-        </div>
-
-        <div class="arch-arrow">→</div>
-
-        <div class="arch-box">
-          <div class="arch-icon">📊</div>
-          <h4>Dashboards</h4>
-          <p>Executive Analytics</p>
-        </div>
-
-      </div>
-
+  <!-- REDIRECT MESSAGE -->
+  <section class="redirect-container">
+    <div class="redirect-card">
+      <div class="redirect-icon">🚀</div>
+      <h1>Redirecting to Portfolio...</h1>
+      <p>You're being redirected to my interactive portfolio on PythonAnywhere.</p>
+      <a href="https://fwidianto.pythonanywhere.com/" class="btn btn-primary">
+        Click here if not redirected
+      </a>
     </div>
-
-  </div>
-
-</section>
-
-<div class="container">
-
-  <div class="card span-12">
-
-    <h2>Key Features</h2>
-
-    <ul>
-      <li><strong>Data Explorer:</strong> Browse and search through all ERP tables (customers, products, suppliers, orders, invoices)</li>
-      <li><strong>AI Executive Advisor:</strong> AI-powered insights on business opportunities, risks, and recommendations</li>
-      <li><strong>Analytics Dashboards:</strong> Executive view, sales analytics, purchasing, inventory, and AR/AP aging</li>
-      <li><strong>SQL Query Interface:</strong> Run custom SQL queries against the database</li>
-      <li><strong>Data Quality Monitoring:</strong> Track completeness and quality of master data</li>
-    </ul>
-
-    <br>
-
-    <h2>Tech Stack</h2>
-
-    <ul>
-      <li>Python / Flask</li>
-      <li>SQLite Database</li>
-      <li>Jinja2 Templates</li>
-      <li>Faker (for sample data generation)</li>
-      <li>Pandas (for data processing)</li>
-    </li>
-
-  </div>
-
-</div>
-
-<footer>
-
-  Built as part of my Data Analytics, Automation, and Process Improvement Portfolio
-
-</footer>
+  </section>
 
 </body>
 </html>

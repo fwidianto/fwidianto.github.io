@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Fauzan Widianto | Business Operations & ERP Analyst{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Hero Section -->
+    <section style="text-align: center; padding: 80px 0;">
+        <div style="font-size: 18px; color: var(--primary); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+            Business Operations & ERP Analyst
+        </div>
+        
+        <h1 style="font-size: 64px; line-height: 1.1; margin-bottom: 30px;">
+            Connecting Data and Operations<br>for Better Decision
+        </h1>
+        
+        <p style="font-size: 20px; color: var(--text-muted); max-width: 800px; margin: 0 auto 50px;">
+            Experienced in operational governance, ERP systems, profitability analysis,
+            reporting automation, and executive dashboards across manufacturing,
+            engineering services, and heavy equipment industries.
+        </p>
+        
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <a href="{{ url_for('about') }}" class="btn">Learn More</a>
+            <a href="{{ url_for('contact') }}" class="btn btn-outline">Get in Touch</a>
+        </div>
+    </section>
+    
+    <!-- Quick Stats -->
+    <section style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-top: 80px;">
+        <div class="card" style="text-align: center; padding: 30px;">
+            <div style="font-size: 48px; margin-bottom: 15px;">📊</div>
+            <h3 style="font-size: 36px; color: var(--primary); margin-bottom: 5px;">6+</h3>
+            <p style="color: var(--text-muted);">Years Experience</p>
+        </div>
+        
+        <div class="card" style="text-align: center; padding: 30px;">
+            <div style="font-size: 48px; margin-bottom: 15px;">🗄️</div>
+            <h3 style="font-size: 36px; color: var(--primary); margin-bottom: 5px;">ERP</h3>
+            <p style="color: var(--text-muted);">Odoo & SAP</p>
+        </div>
+        
+        <div class="card" style="text-align: center; padding: 30px;">
+            <div style="font-size: 48px; margin-bottom: 15px;">📈</div>
+            <h3 style="font-size: 36px; color: var(--primary); margin-bottom: 5px;">BI</h3>
+            <p style="color: var(--text-muted);">Dashboards & Analytics</p>
+        </div>
+        
+        <div class="card" style="text-align: center; padding: 30px;">
+            <div style="font-size: 48px; margin-bottom: 15px;">⚙️</div>
+            <h3 style="font-size: 36px; color: var(--primary); margin-bottom: 5px;">Auto</h3>
+            <p style="color: var(--text-muted);">Process Automation</p>
+        </div>
+    </section>
+    
+    <!-- Featured Projects -->
+    <section style="margin-top: 100px;">
+        <h2 class="section-title">Featured Work</h2>
+        
+        <div class="grid">
+            <a href="{{ url_for('investment_dashboard') }}" class="project-link-card">
+                <div class="project-icon">📊</div>
+                <h3>Investment Dashboard</h3>
+                <p>Real-time market monitoring with AI-powered analytics and portfolio insights.</p>
+                <span class="btn">View Project →</span>
+            </a>
+            
+            <a href="{{ url_for('erp_dashboard') }}" class="project-link-card">
+                <div class="project-icon">🧠</div>
+                <h3>ERP Intelligence Dashboard</h3>
+                <p>AI-powered executive insights and business intelligence for operational data.</p>
+                <span class="btn">View Project →</span>
+            </a>
+            
+            <a href="{{ url_for('hs_code_automation') }}" class="project-link-card">
+                <div class="project-icon">🧾</div>
+                <h3>HS Code Automation</h3>
+                <p>Automated trade compliance data extraction and processing system.</p>
+                <span class="btn">View Project →</span>
+            </a>
+        </div>
+    </section>
+</div>
+{% endblock %}

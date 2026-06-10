@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Error | Fauzan Widianto{% endblock %}
+
+{% block content %}
+<div class="container" style="text-align: center; padding: 100px 0;">
+    <div style="font-size: 80px; margin-bottom: 30px;">🔍</div>
+    <h1 style="font-size: 48px; margin-bottom: 20px;">Page Not Found</h1>
+    <p style="color: var(--text-muted); font-size: 20px; margin-bottom: 40px;">
+        {{ message | default('The page you're looking for doesn't exist.') }}
+    </p>
+    <div style="display: flex; justify-content: center; gap: 20px;">
+        <a href="{{ url_for('home') }}" class="btn">Go Home</a>
+        <a href="{{ url_for('contact') }}" class="btn btn-outline">Contact Me</a>
+    </div>
+</div>
+{% endblock %}

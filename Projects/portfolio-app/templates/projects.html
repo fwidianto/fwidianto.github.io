@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Projects | Fauzan Widianto{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1>Projects</h1>
+        <p>Showcasing work in analytics, automation, and ERP systems</p>
+    </div>
+    
+    <div class="grid">
+        <div class="card">
+            <div style="font-size: 48px; margin-bottom: 20px;">📊</div>
+            <h2>Investment Analytics Dashboard</h2>
+            <p>
+                A personal analytics side project focused on monitoring markets in real time,
+                understanding macroeconomic conditions, and exploring data-driven approaches
+                to gain an analytical edge in the market.
+            </p>
+            <ul style="margin-top: 20px;">
+                <li>Real-time market monitoring via TradingView</li>
+                <li>AI-powered market commentary</li>
+                <li>Portfolio allocation recommendations</li>
+                <li>Central bank rate monitoring</li>
+                <li>Market news aggregation</li>
+            </ul>
+            <div style="margin-top: 20px;">
+                <span style="background: rgba(59, 130, 246, 0.12); color: #60a5fa; padding: 6px 12px; border-radius: 20px; font-size: 12px; margin-right: 8px;">Google Sheets</span>
+                <span style="background: rgba(59, 130, 246, 0.12); color: #60a5fa; padding: 6px 12px; border-radius: 20px; font-size: 12px; margin-right: 8px;">Looker Studio</span>
+                <span style="background: rgba(59, 130, 246, 0.12); color: #60a5fa; padding: 6px 12px; border-radius: 20px; font-size: 12px; margin-right: 8px;">Apps Script</span>
+                <span style="background: rgba(59, 130, 246, 0.12); color: #60a5fa; padding: 6px 12px; border-radius: 20px; font-size: 12px;">Chart.js</span>
+            </div>
+            <a href="{{ url_for('investment_dashboard') }}" class="btn" style="margin-top: 20px;">View Project →</a>
+        </div>
+        
+        <div class="card">
+            <div style="font-size: 48px; margin-bottom: 20px;">🧠</div>
+            <h2>AI-ERP Intelligence Dashboard</h2>
+            <p>
+                A sophisticated ERP data exploration and analytics platform featuring 
+                AI-powered executive insights, interactive dashboards, and intelligent 
+                business recommendations based on operational data.
+            </p>
+            <ul style="margin-top: 20px;">
+                <li>Data Explorer with search and filtering</li>
+                <li>AI Executive Advisor with insights</li>
+                <li>Analytics Dashboards (Sales, Inventory, etc.)</li>
+                <li>SQL Query Interface</li>
+                <li>Data Quality Monitoring</li>
+            </ul>
+            <div style="margin-top: 20px;">
+                <span style="background: rgba(59, 130, 246, 0.12); color: #60a5fa; padding: 6px 12px; border-radius: 20px; font-size: 12px; margin-right: 8px;">Python</span>
+                <span style="background: rgba(59, 130, 246, 0.12); color: #60a5fa; padding: 6px 12px; border-radius: 20px; font-size: 12px; margin-right: 8px;">Flask</span>
+                <span style="background: rgba(59, 130, 246, 0.12); color: #60a5fa; padding: 6px 12px; border-radius: 20px; font-size: 12px; margin-right: 8px;">SQLite</span>
+                <span style="background: rgba(59, 130, 246, 0.12); color: #60a5fa; padding: 6px 12px; border-radius: 20px; font-size: 12px;">Pandas</span>
+            </div>
+            <a href="{{ url_for('erp_dashboard') }}" class="btn" style="margin-top: 20px;">View Project →</a>
+        </div>
+        
+        <div class="card">
+            <div style="font-size: 48px; margin-bottom: 20px;">🧾</div>
+            <h2>HS Code Trade Compliance Automation</h2>
+            <p>
+                Automated data pipeline that retrieves tariff rates and import licensing 
+                requirements from Indonesia's National Single Window (INSW) portal. 
+                The solution eliminates repetitive manual lookups.
+            </p>
+            <ul style="margin-top: 20px;">
+                <li>Browser automation using Playwright</li>
+                <li>Tariff and licensing data extraction</li>
+                <li>Regex-based pattern extraction</li>
+                <li>Excel and JSON output generation</li>
+                <li>Incremental processing</li>
+            </ul>
+            <div style="margin-top: 20px;">
+                <span style="background: rgba(59, 130, 246, 0.12); color: #60a5fa; padding: 6px 12px; border-radius: 20px; font-size: 12px; margin-right: 8px;">Python</span>
+                <span style="background: rgba(59, 130, 246, 0.12); color: #60a5fa; padding: 6px 12px; border-radius: 20px; font-size: 12px; margin-right: 8px;">Playwright</span>
+                <span style="background: rgba(59, 130, 246, 0.12); color: #60a5fa; padding: 6px 12px; border-radius: 20px; font-size: 12px; margin-right: 8px;">OpenPyXL</span>
+                <span style="background: rgba(59, 130, 246, 0.12); color: #60a5fa; padding: 6px 12px; border-radius: 20px; font-size: 12px;">Regex</span>
+            </div>
+            <a href="{{ url_for('hs_code_automation') }}" class="btn" style="margin-top: 20px;">View Project →</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
