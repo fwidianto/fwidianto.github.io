@@ -13,7 +13,7 @@ import json
 
 # Blueprint
 ai_advisor_bp = Blueprint('ai_advisor', __name__, 
-                          template_folder='ai_templates')
+                          template_folder='templates/ai_advisor')
 
 def get_db_path():
     return os.path.expanduser(os.environ.get('DATABASE_PATH', '~/AI-Projects/database/erp_database.db'))

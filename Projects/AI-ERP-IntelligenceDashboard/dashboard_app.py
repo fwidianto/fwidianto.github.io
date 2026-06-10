@@ -13,7 +13,7 @@ import json
 
 # Dashboard Blueprint
 dashboard_bp = Blueprint('dashboard', __name__, 
-                         template_folder='dashboard_templates',
+                         template_folder='templates/dashboard',
                          static_folder='dashboard_static')
 
 # Database path - shared with main app
