@@ -24,6 +24,7 @@ jobs:
           port: 22
           timeout: 60s
           command_timeout: 15m
+          debug: true
           script: |
             set -e
             
