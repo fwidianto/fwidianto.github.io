@@ -1,10 +1,9 @@
-name: Deploy to PythonAnywhere
+name: Deploy ERP Dashboard to PythonAnywhere
 
 on:
   push:
     branches:
       - repo-cleanup-audit
-      - main
   workflow_dispatch:
 
 jobs:
@@ -16,7 +15,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Deploy to PythonAnywhere via SSH
+      - name: Deploy ERP Dashboard to PythonAnywhere via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.PYTHONANYWHERE_HOST }}
@@ -26,10 +25,24 @@ jobs:
             cd ~/fwidianto.github.io
             
             # Pull latest changes
-            git pull origin ${{ github.ref_name }}
+            git pull origin repo-cleanup-audit
             
-            # Sync portfolio-app folder
-            rsync -avz --delete ~/fwidianto.github.io/Projects/portfolio-app/ ~/portfolio-app/
+            # Sync AI-ERP-IntelligenceDashboard folder
+            rsync -avz --delete ~/fwidianto.github.io/Projects/AI-ERP-IntelligenceDashboard/ ~/erp-dashboard/
+            
+            # Create necessary directories
+            mkdir -p ~/erp-dashboard/database ~/erp-dashboard/output
+            
+            # Install dependencies
+            pip install --user -r ~/erp-dashboard/requirements.txt
+            
+            # Generate database (only if database doesn't exist or is empty)
+            if [ ! -f ~/erp-dashboard/database/erp_database.db ] || [ $(wc -c < ~/erp-dashboard/database/erp_database.db) -lt 1000 ]; then
+              echo "Generating ERP database..."
+              cd ~/erp-dashboard
+              python scripts/generate_erp_data.py
+              python scripts/run_etl.py
+            fi
             
             # Touch wsgi to reload
-            touch ~/portfolio-app_wsgi.py
+            touch ~/erp_dashboard_wsgi.py
