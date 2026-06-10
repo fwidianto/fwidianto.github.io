@@ -22,19 +22,29 @@ jobs:
           username: ${{ secrets.PYTHONANYWHERE_USERNAME }}
           password: ${{ secrets.PYTHONANYWHERE_PASSWORD }}
           port: 22
-          timeout: 30s
-          command_timeout: 10m
+          timeout: 60s
+          command_timeout: 15m
           script: |
-            cd ~/fwidianto.github.io
+            set -e
             
-            # Pull latest changes
+            echo "=== Starting deployment ==="
+            
+            # Check if fwidianto.github.io directory exists, if not clone it
+            if [ ! -d ~/fwidianto.github.io ]; then
+              echo "Cloning repository..."
+              git clone https://github.com/fwidianto/fwidianto.github.io.git ~/fwidianto.github.io
+            fi
+            
+            cd ~/fwidianto.github.io
+            git fetch origin
+            git checkout repo-cleanup-audit || git checkout -b repo-cleanup-audit origin/repo-cleanup-audit
             git pull origin repo-cleanup-audit
+            
+            # Create erp-dashboard directory
+            mkdir -p ~/erp-dashboard/database ~/erp-dashboard/output
             
             # Sync AI-ERP-IntelligenceDashboard folder
             rsync -avz --delete ~/fwidianto.github.io/Projects/AI-ERP-IntelligenceDashboard/ ~/erp-dashboard/
-            
-            # Create necessary directories
-            mkdir -p ~/erp-dashboard/database ~/erp-dashboard/output
             
             # Install dependencies
             pip install --user -r ~/erp-dashboard/requirements.txt
@@ -49,3 +59,5 @@ jobs:
             
             # Touch wsgi to reload
             touch ~/erp_dashboard_wsgi.py
+            
+            echo "=== Deployment complete ==="
