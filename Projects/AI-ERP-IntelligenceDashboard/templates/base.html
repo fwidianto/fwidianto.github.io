@@ -814,7 +814,12 @@
     <!-- Main Content -->
     <main class="main-content">
         <header class="topbar">
-            <h1 class="topbar-title">{% block page_title %}Dashboard{% endblock %}</h1>
+            <div style="display: flex; align-items: center; gap: 20px; flex: 1;">
+                <h1 class="topbar-title">{% block page_title %}Dashboard{% endblock %}</h1>
+                <a href="https://fwidianto.github.io" target="_blank" style="color: var(--primary); text-decoration: none; font-size: 14px; display: flex; align-items: center; gap: 6px; padding: 8px 16px; border: 1px solid var(--primary); border-radius: 8px; transition: all 0.2s;">
+                    <span>←</span> Back to Portfolio
+                </a>
+            </div>
             <div class="topbar-actions">
                 {% block topbar_actions %}{% endblock %}
             </div>
